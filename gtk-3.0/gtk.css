@@ -1,0 +1,58 @@
+headerbar {
+ min-height: 0;
+ padding-left: 2px;
+ padding-right: 2px;
+ padding-top: 1px;
+ padding-bottom: 1px;
+}
+
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+ margin-top: 1px;
+ margin-bottom: 1px;
+}
+
+.default-decoration {
+ min-height: 0;
+ padding-left: 2px; 
+ padding-right: 2px;
+ padding-top: 1px;
+ padding-bottom: 1px;
+}
+
+.default-decoration .titlebutton {
+ min-height: 5px;
+ min-width: 5px;
+}
+
+button, entry {
+ min-height: 0;
+ min-width: 0;
+ padding: 2px;
+}
+
+notebook tab {
+ min-height: 0;
+ padding-top: 3px;
+ padding-bottom: 3px;
+}
+
+notebook tab button {
+ min-height: 0;
+ min-width: 0;
+ padding: 2px;
+ margin-top: 2px;
+ margin-bottom: 2px;
+}
+
+notebook button {
+ min-height: 0;
+ min-width: 0;
+ padding: 2px;
+}
+
+widget {
+ padding: 4px;
+}
