@@ -1,0 +1,110 @@
+{
+  "position": "top",
+  "margin-top": 6,
+  "margin-right": 6,
+  "margin-bottom": 0,
+  "margin-left": 6,
+  "modules-left": [
+    "wlr/workspaces",
+    "cpu",
+    "temperature",
+    "memory",
+  ],
+  "modules-center": [
+    "custom/focused-app"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "tray",
+    "battery",
+    "clock"
+  ],
+  "custom/logo": {
+    "format": ""
+  },
+  "cpu": {
+    "format": "<span size='large'></span>  {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "<span size='large'></span>  {}%"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "format": "{name}",
+      "active-only": "true"
+    }
+  },
+  "clock": {
+    "format": "<span size='large'></span>  {:%a %d %b <span size='large'></span>  %H:%M}",
+    "interval": 1
+  },
+  "battery": {
+
+    "states": {
+
+      "warning": 30,
+
+      "critical": 15
+
+   },
+
+   "format": "{icon} {capacity}%",
+
+   "format-charging": " {capacity}%",
+
+   "format-plugged": "{capacity}%",
+
+   "format-alt": "{time} {icon}",
+
+   "format-full": " {capacity}%",
+
+   "format-icons": ["", "", ""]
+
+  },
+  "network": {
+    "width": 120,
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": "<span size='large'></span>   {bandwidthDownBits}  {bandwidthUpBits}",
+    "format-linked": " (No IP) ",
+    "format-disconnected": "睊",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "{ifname}"
+  },
+  "pulseaudio": {
+    "format": "<span size='large'>{icon}</span>  {volume}%",
+    "format-bluetooth": "{volume}% <span size='large'>{icon}</span>  {format_source}",
+    "format-bluetooth-muted": "<span size='large'>ﱝ{icon}</span>  {format_source}",
+    "format-muted": "<span size='large'>ﱝ</span>",
+    "format-source": "{volume}% <span size='medium'></span>",
+    "format-source-muted": "<span size='medium'></span>",
+    "format-icons": {
+      "headphones": "",
+      "default": [
+        "墳"
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "custom/focused-app": {
+    "format": "{}",
+    "interval": 1,
+    "exec": "hyprctl activewindow -j | jq -r '.. | .class? | select(.)' | tail -n1"
+  }
+}

@@ -13,9 +13,8 @@ A config files collection for CLI development
 
 ### Contents
 
-- lxqt/kvantum config
 - fish config
 - PowerShell config
 - nvim config
 - tux config
-- hyprland config
+- hyprland/wofi/waybar config

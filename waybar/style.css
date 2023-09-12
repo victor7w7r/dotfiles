@@ -1,0 +1,109 @@
+@import "macchiato.css";
+
+* {
+  font-family: Iosevka Nerd Font, Material Symbols Rounded;
+  font-size: 15px;
+  /* font-weight: bold; */
+}
+
+window#waybar {
+  background-color: @surface0;
+  margin: 6px 6px 0 6px;
+  border-radius: 8px;
+}
+
+#workspaces {
+  margin-right: 8px;
+}
+
+#workspaces button {
+  color: @pink;
+  box-shadow: inset 0 -3px transparent;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#workspaces button.active {
+  color: @surface0;
+  background-color: @mauve;
+}
+
+#workspaces button:hover {
+  color: @rosewater;
+}
+
+#cpu {
+  color: @green;
+}
+
+#temperature {
+  color: @lavender;
+}
+
+#memory {
+  color: @blue;
+}
+
+#cpu,
+#memory {
+  padding: 0 10px;
+}
+
+#tray,
+#network,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  padding: 0 10px;
+}
+
+#custom-logo {
+  padding: 0 14px 0 10px;
+  background-color: @lavender;
+}
+
+/* special borders */
+#network {
+  border-radius: 8px 0 0 8px;
+}
+
+#battery {
+  color: @lavender;
+}
+
+#clock {
+  color: @lavender;
+}
+
+#network {
+  color: @flamingo;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#pulseaudio {
+  color: @pink;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#custom-power {
+  border-radius: 1rem;
+  color: @red;
+  margin-bottom: 1rem;
+}
+
+tooltip {
+  background: @base;
+  border: 1px solid @pink;
+}
+
+tooltip label {
+  color: @text;
+}
