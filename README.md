@@ -13,7 +13,7 @@ A config files collection for CLI development
 
 ### Contents
 
-- xfce4 config
+- lxqt/kvantum config
 - fish config
 - PowerShell config
 - nvim config
