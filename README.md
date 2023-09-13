@@ -4,7 +4,7 @@ A config files collection for CLI development
 
 ![Alt text](splash.png?raw=true "Title")
 
-### Thanks
+## Thanks
 
 - I was inspired by these repositories to base myself on mine to work <3
 
@@ -13,8 +13,9 @@ A config files collection for CLI development
 
 ### Contents
 
+- xfce4 config
 - fish config
-- PowerShell config
+- PowerShell/WinTerminal config
 - nvim config
-- tux config
-- hyprland/wofi/waybar config
+- tmux config
+- alacritty/hyprland/wofi/waybar config
