@@ -1,6 +1,10 @@
 [xfdesktop-version-4.10.3+-rcfile_format]
 4.10.3+=true
 
+[75F0-CB32]
+row=2
+col=8
+
 [Papelera]
 row=1
 col=8
