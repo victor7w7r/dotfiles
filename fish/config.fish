@@ -1,5 +1,9 @@
 set fish_greeting ""
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+set -l op (random choice {-b,-d,-g,-p,-s,-t,-w,-y})
+
 set -gx TERM xterm-256color
 
 # theme
@@ -14,7 +18,9 @@ alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
+alias cow "fortune -s | cowsay --bold $op --random --super"
 alias g git
+
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
@@ -49,3 +55,8 @@ set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
   source $LOCAL_CONFIG
 end
+
+uptime | lolcat
+uname -n -s -v -m | lolcat
+echo "Welcome to Arch Linux!" | lolcat
+fortune -s | cowsay --bold $op --random | lolcat

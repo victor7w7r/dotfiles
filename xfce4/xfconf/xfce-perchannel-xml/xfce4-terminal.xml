@@ -2,7 +2,7 @@
 
 <channel name="xfce4-terminal" version="1.0">
   <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
-  <property name="background-darkness" type="double" value="0.68000000000000005"/>
+  <property name="background-darkness" type="double" value="0.94999999999999996"/>
   <property name="color-foreground" type="string" value="#CDD6F4"/>
   <property name="color-background" type="string" value="#1E1E2E"/>
   <property name="color-cursor-foreground" type="string" value="#11111B"/>
