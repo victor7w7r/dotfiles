@@ -1,0 +1,230 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+command_timeout = 2000
+
+format = """
+[╭╴](#7088ff)\
+$os\
+$username\
+[@](#7088ff)\
+$hostname\
+$jobs\
+$directory\
+$cmd_duration\
+$git_status\
+$git_branch\
+$bun\
+$dart\
+$java\
+$kotlin\
+$rust\
+$fill\
+
+$status\
+$git_metrics\
+$package\
+$shell\
+$sudo\
+$localip\
+$memory_usage\
+$battery\
+$time
+[╰⎯](#7088ff)\
+$character
+"""
+
+[character]
+success_symbol = '[\$](bold #cc8afc)'
+error_symbol = '[\$](bold #cc8afc)'
+vimcmd_symbol = '[](bold turquoise)'
+#success_symbol = '[#](bold #ff5990)'
+#error_symbol = '[#](bold #ff5990)'
+
+[os]
+disabled = false
+format = '[$symbol]($style)'
+style = 'bold #7088ff'
+
+[os.symbols]
+Windows = ' '
+Arch = '󰣇'
+Android = ' '
+Debian = ' '
+FreeBSD = ' '
+NetBSD = '󰉀 '
+OpenBSD = ' '
+Macos = '󰀵'
+Unknown = '󰠥'
+
+[username]
+disabled = false
+format = ' (black bold)[$user]($style)'
+show_always = true
+style_user = 'bold #2BB7FB'
+style_root = 'bold #ff5990'
+
+[hostname]
+disabled = false
+format = '[$hostname ]($style)'
+ssh_only = false
+style = 'bold #2BB7FB'
+
+[jobs]
+format = '[$symbol$number]($style) '
+style = 'white'
+symbol = '[▶](blue italic)'
+
+[directory]
+format = '[$path]($style)[$read_only ]($read_only_style)'
+home_symbol = '~'
+read_only = '  '
+style = 'italic #83e6ff'
+truncation_length = 3
+truncation_symbol = '…/'
+
+[directory.substitutions]
+'Documents' = '󰈙 '
+'Downloads' = ' '
+'Music' = ' '
+'Pictures' = ' '
+
+[cmd_duration]
+disabled = false
+format = '[ $duration]($style) '
+style = 'dimmed #cc8afc'
+
+[git_status]
+style = 'yellow'
+format = '[\[$all_status$ahead_behind]($style)'
+ahead = '[⇡│[${count}](bold white)│](italic green)'
+behind = '[⇣│[${count}](bold white)│](italic red)'
+conflicted = '[◪◦](italic bright-magenta)'
+diverged = '[⇕ [${ahead_count}](regular white)│▿┤[${behind_count}](regular white)│](italic bright-magenta)'
+deleted = '[x](italic red)'
+modified = '[ ](italic yellow)'
+renamed = '[»](italic bright-blue)'
+staged = '[▪┤[$count](bold white)│](italic bright-cyan)'
+stashed = '[$](italic white)'
+untracked = '[ ](italic bright-yellow)'
+
+[git_branch]
+format = '[$branch(:$remote_branch)\]]($style) '
+ignore_branches = ["main", "master"]
+only_attached = true
+style = 'yellow'
+truncation_symbol = '⋯'
+truncation_length = 10
+
+[bun]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[dart]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[java]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[kotlin]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[rust]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[fill]
+symbol = ' '
+
+# SEPARATE
+
+[status]
+disabled = false
+failure_style = 'bold red'
+format = '[\[$status\] $symbol]($style)'
+symbol = "\\(╯°□°）╯︵ ┻━┻ "
+
+[git_metrics]
+disabled = false
+added_style = 'bold dimmed green'
+deleted_style = 'bold dimmed red'
+format = '([⇡$added]($added_style)) ([⇣$deleted ]($deleted_style))'
+ignore_submodules = true
+
+[package]
+disabled = false
+format = '[$version ]($style)'
+style = 'italic dimmed #83e6ff'
+
+[shell]
+disabled = false
+format = '[\[$indicator\] ]($style)'
+style = 'bold #2BB7FB'
+unknown_indicator = 'sh'
+
+[sudo]
+disabled = false
+format = '[\[$symbol\] ]($style)'
+style = 'bold #ff5990'
+symbol = ''
+
+[localip]
+disabled = false
+format = "[$localipv4 ]($style)"
+style = 'italic dimmed #7088ff'
+ssh_only = false
+
+[memory_usage]
+disabled = false
+format = '$symbol[${ram}( | ${swap})]($style) '
+threshold = -1
+style = 'italic dimmed #7088ff'
+symbol = ''
+
+[battery]
+format = '[ $percentage $symbol]($style)'
+charging_symbol = '[↑](italic bold green)'
+discharging_symbol = '↓'
+
+[[battery.display]]
+threshold = 20
+style = 'italic bold red'
+
+[[battery.display]]
+threshold = 60
+style = 'italic dimmed bright-purple'
+
+[[battery.display]]
+threshold = 70
+style = 'italic dimmed yellow'
+
+[time]
+disabled = false
+format = '[ 󰋑  ](#cc8afc)[$time]($style)'
+style = 'italic #83e6ff'
+time_format = '%I:%M %p'
+use_12hr = true
+utc_time_offset = 'local'
+
+[vagrant]
+disabled = true
+
+[helm]
+disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
+
+[terraform]
+disabled = true
