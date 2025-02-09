@@ -24,10 +24,10 @@ $fill\
 $status\
 $git_metrics\
 $package\
+$memory_usage\
 $shell\
 $sudo\
 $localip\
-$memory_usage\
 $battery\
 $time
 [╰⎯](#7088ff)\
@@ -149,8 +149,8 @@ symbol = ' '
 [status]
 disabled = false
 failure_style = 'bold red'
-format = '[\[$status\] $symbol]($style)'
-symbol = "\\(╯°□°）╯︵ ┻━┻ "
+format = '[$symbol\[$status\] ]($style)'
+symbol = "\\(╯°□°）╯"
 
 [git_metrics]
 disabled = false
@@ -163,6 +163,13 @@ ignore_submodules = true
 disabled = false
 format = '[$version ]($style)'
 style = 'italic dimmed #83e6ff'
+
+[memory_usage]
+disabled = false
+format = '$symbol[$ram_pct$swap_pct]($style) '
+threshold = -1
+style = 'italic dimmed #83e6ff'
+symbol = ''
 
 [shell]
 disabled = false
@@ -181,13 +188,6 @@ disabled = false
 format = "[$localipv4 ]($style)"
 style = 'italic dimmed #7088ff'
 ssh_only = false
-
-[memory_usage]
-disabled = false
-format = '$symbol[${ram}( | ${swap})]($style) '
-threshold = -1
-style = 'italic dimmed #7088ff'
-symbol = ''
 
 [battery]
 format = '[ $percentage $symbol]($style)'
@@ -210,7 +210,7 @@ style = 'italic dimmed yellow'
 disabled = false
 format = '[ 󰋑  ](#cc8afc)[$time]($style)'
 style = 'italic #83e6ff'
-time_format = '%I:%M %p'
+time_format = '%d-%b %I:%M%P'
 use_12hr = true
 utc_time_offset = 'local'
 
