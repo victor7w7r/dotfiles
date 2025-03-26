@@ -1,1 +1,4 @@
 .DS_Store
+zsh/lib/.private
+zsh/.zsh_history
+zsh/.zcompdump

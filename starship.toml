@@ -12,8 +12,6 @@ $hostname\
 $jobs\
 $directory\
 $cmd_duration\
-$git_status\
-$git_branch\
 $bun\
 $dart\
 $java\
@@ -22,10 +20,7 @@ $rust\
 $fill\
 
 $status\
-$git_metrics\
 $package\
-$memory_usage\
-$shell\
 $sudo\
 $localip\
 $battery\
@@ -72,8 +67,8 @@ style = 'bold #2BB7FB'
 
 [jobs]
 format = '[$symbol$number]($style) '
-style = 'white'
-symbol = '[▶](blue italic)'
+style = 'bold #83e6ff'
+symbol = '[▶](#83e6ff)'
 
 [directory]
 format = '[$path]($style)[$read_only ]($read_only_style)'
@@ -93,28 +88,6 @@ truncation_symbol = '…/'
 disabled = false
 format = '[ $duration]($style) '
 style = 'dimmed #cc8afc'
-
-[git_status]
-style = 'yellow'
-format = '[\[$all_status$ahead_behind]($style)'
-ahead = '[⇡│[${count}](bold white)│](italic green)'
-behind = '[⇣│[${count}](bold white)│](italic red)'
-conflicted = '[◪◦](italic bright-magenta)'
-diverged = '[⇕ [${ahead_count}](regular white)│▿┤[${behind_count}](regular white)│](italic bright-magenta)'
-deleted = '[x](italic red)'
-modified = '[ ](italic yellow)'
-renamed = '[»](italic bright-blue)'
-staged = '[▪┤[$count](bold white)│](italic bright-cyan)'
-stashed = '[$](italic white)'
-untracked = '[ ](italic bright-yellow)'
-
-[git_branch]
-format = '[$branch(:$remote_branch)\]]($style) '
-ignore_branches = ["main", "master"]
-only_attached = true
-style = 'yellow'
-truncation_symbol = '⋯'
-truncation_length = 10
 
 [bun]
 format = '[$symbol(${version} )]($style)'
@@ -148,34 +121,14 @@ symbol = ' '
 
 [status]
 disabled = false
-failure_style = 'bold red'
+failure_style = 'bold #ff5990'
 format = '[$symbol\[$status\] ]($style)'
 symbol = "\\(╯°□°）╯"
-
-[git_metrics]
-disabled = false
-added_style = 'bold dimmed green'
-deleted_style = 'bold dimmed red'
-format = '([⇡$added]($added_style)) ([⇣$deleted ]($deleted_style))'
-ignore_submodules = true
 
 [package]
 disabled = false
 format = '[$version ]($style)'
 style = 'italic dimmed #83e6ff'
-
-[memory_usage]
-disabled = false
-format = '$symbol[$ram_pct$swap_pct]($style) '
-threshold = -1
-style = 'italic dimmed #83e6ff'
-symbol = ''
-
-[shell]
-disabled = false
-format = '[\[$indicator\] ]($style)'
-style = 'bold #2BB7FB'
-unknown_indicator = 'sh'
 
 [sudo]
 disabled = false
@@ -185,7 +138,7 @@ symbol = ''
 
 [localip]
 disabled = false
-format = "[$localipv4 ]($style)"
+format = '[$localipv4]($style)[ 󰋑  ](#cc8afc)'
 style = 'italic dimmed #7088ff'
 ssh_only = false
 
@@ -208,9 +161,9 @@ style = 'italic dimmed yellow'
 
 [time]
 disabled = false
-format = '[ 󰋑  ](#cc8afc)[$time]($style)'
+format = '[$time]($style)'
 style = 'italic #83e6ff'
-time_format = '%d-%b %I:%M%P'
+time_format = '%I:%M:%S'
 use_12hr = true
 utc_time_offset = 'local'
 
