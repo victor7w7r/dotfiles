@@ -16,8 +16,11 @@ elseif platform.is_win then
   os.win32_system_backdrop = "Acrylic"
   os.integrated_title_buttons = { "Hide", "Maximize", "Close" }
 else
-  os.window_decorations = "RESIZE"
-  os.window_padding = { left = 5, right = 5, top = 0, bottom = 0 }
+  os.window_decorations = "RESIZE|INTEGRATED_BUTTONS"
+  os.integrated_title_buttons = { "Close", "Hide", "Maximize" }
+  os.integrated_title_button_alignment = "Left"
+  os.integrated_title_button_style = "Gnome"
+  os.window_padding = { left = 12, right = 12, top = 10, bottom = 0 }
 end
 
 return tables.merge({

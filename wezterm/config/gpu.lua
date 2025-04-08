@@ -5,7 +5,7 @@ local tables = require 'utils.tables'
 local gpu = {}
 
 if platform.is_linux then
-  gpu.enable_wayland = true
+  gpu.enable_wayland = false
   gpu.prefer_egl = true
 end
 
@@ -13,7 +13,7 @@ return tables.merge({
   gpu,
   {
     animation_fps = 120,
-    front_end = 'WebGpu',
+    front_end = 'OpenGL',
     max_fps = 120,
     webgpu_force_fallback_adapter = false,
     webgpu_power_preference = "HighPerformance",

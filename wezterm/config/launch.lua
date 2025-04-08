@@ -23,7 +23,7 @@ elseif platform.is_mac then
     { label = 'Zsh', args = { 'zsh', '-l' } },
   }
 elseif platform.is_linux then
-  default_prog = { 'tmux', '-l' }
+  default_prog = { "/bin/zsh", "-c", "/bin/tmux -f $HOME/.config/tmux/tmux.conf" }
   os_menu = {
     { label = 'Zsh', args = { 'zsh', '-l' } },
   }
