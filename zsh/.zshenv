@@ -69,6 +69,8 @@ path=(
   $HOME/.local/{,s}bin(N)
   $HOME/{,s}bin(N)
   /usr/local/{,s}bin(N)
+  /home/linuxbrew/.linuxbrew/bin
+  /home/linuxbrew/.linuxbrew/sbin
   node_modules/.bin
   $PYENV_ROOT/bin
   $ZFUNCDIR
