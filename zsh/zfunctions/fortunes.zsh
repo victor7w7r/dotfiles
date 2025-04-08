@@ -1,30 +1,9 @@
 function random-quote() {
   case $(((RANDOM % 3) + 1)) in
-  1)
-    customfortunes
-    ;;
-  2)
-    bofh
-    ;;
-  3)
-    case $(((RANDOM % 5) + 1)) in
-    1)
-      love
-      ;;
-    2)
-      inspire
-      ;;
-    3)
-      facts
-      ;;
-    4)
-      nerd
-      ;;
-    5)
-      funny
-      ;;
-    esac
-    ;;
+  1) customfortunes ;;
+  2) bofh ;;
+  3) facts ;;
+  4) fortune ;;
   esac
 }
 

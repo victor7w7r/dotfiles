@@ -18,11 +18,6 @@ local keys = {
   { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
   { key = 'F3', mods = 'NONE', action = act.ShowLauncher },
   { key = 'F4', mods = 'NONE', action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS' }) },
-  {
-    key = 'F5',
-    mods = 'NONE',
-    action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
-  },
   { key = 'F11', mods = 'NONE',    action = act.ToggleFullScreen },
   { key = 'F12', mods = 'NONE',    action = act.ShowDebugOverlay },
   { key = 'f',   mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) },
@@ -52,8 +47,8 @@ local keys = {
   { key = 'Backspace',  mods = mod.SUPER,     action = act.SendString '\u{15}' },
 
   -- copy/paste --
-  { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
-  { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
+  { key = 'c',          mods = mod.SUPER,  action = act.CopyTo('Clipboard') },
+  { key = 'v',          mods = mod.SUPER,  action = act.PasteFrom('Clipboard') },
 
   -- tabs --
   -- tabs: spawn+close

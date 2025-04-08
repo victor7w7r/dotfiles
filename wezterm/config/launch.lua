@@ -18,16 +18,14 @@ if platform.is_win then
     },
   }
 elseif platform.is_mac then
-  default_prog = { '/usr/local/bin/fish', '-l' }
+  default_prog = { "/usr/local/bin/zsh", "-c", "/usr/local/bin/tmux -f $HOME/.config/tmux/tmux.conf" }
   os_menu = {
-    { label = 'Bash', args = { 'bash', '-l' } },
-    { label = 'Fish', args = { '/usr/local/bin/fish', '-l' } },
+    { label = 'Zsh', args = { 'zsh', '-l' } },
   }
 elseif platform.is_linux then
-  default_prog = { 'fish', '-l' }
+  default_prog = { 'tmux', '-l' }
   os_menu = {
-    { label = 'Bash', args = { 'bash', '-l' } },
-    { label = 'Fish', args = { 'fish', '-l' } },
+    { label = 'Zsh', args = { 'zsh', '-l' } },
   }
 end
 
