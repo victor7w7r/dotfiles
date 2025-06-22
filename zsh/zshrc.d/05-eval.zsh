@@ -1,7 +1,7 @@
 if [[ "$OSTYPE" == darwin* && -x "$(command -v brew)" ]]; then
   lazyload brew brewup brewupcask -- 'eval "$(/usr/local/bin/brew shellenv)"'
-elif [[ "$OSTYPE" == linux* && -d /home/linuxbrew/.linuxbrew ]]; then
-  lazyload brew brewup brewupcask -- 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+elif [[ "$OSTYPE" == linux* && -d "/home/linuxbrew/.linuxbrew" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 commandexist systemctl && lazyload systemctl -- 'systemctl --user import-environment PATH'

@@ -39,14 +39,13 @@ fpath=("$ZSH/functions" "$ZSH/completions" $fpath)
 unset SSH_ASKPASS
 unset PROMPT_FIRST_TIME
 
-[[ -n "$FBTERM_SESSION_ID" ]] && export TERM=fbterm
-
 if [[ -o login && \
   "$(tty)" =~ /dev/tty[0-9]+ && \
   "$OSTYPE" != darwin* && \
   -z "$FBTERM_SESSION_ID" && \
   -x "$(command -v fbterm)" ]]
 then
+  export FROM_FBTERM=1
   exec fbterm
 fi
 
