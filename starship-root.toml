@@ -4,7 +4,7 @@ add_newline = true
 command_timeout = 2000
 
 format = """
-[╭╴](#7088ff)\
+[╭╴](#ff5990)\
 $os\
 $username\
 [@](#7088ff)\
@@ -24,19 +24,19 @@ $status\
 $localip\
 $battery\
 $time
-[╰⎯](#7088ff)\
+[╰⎯](#ff5990)\
 $character
 """
 
 [character]
-success_symbol = '[\$](bold #cc8afc)'
-error_symbol = '[\$](bold #cc8afc)'
+success_symbol = '[#](bold #ff5990)'
+error_symbol = '[#](bold #ff5990)'
 vimcmd_symbol = '[](bold turquoise)'
 
 [os]
 disabled = false
 format = '[$symbol]($style)'
-style = 'bold #7088ff'
+style = 'bold #ff5990'
 
 [os.symbols]
 Windows = ' '

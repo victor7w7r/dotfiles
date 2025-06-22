@@ -46,7 +46,4 @@ setopt_if_exists MENU_COMPLETE
 unsetopt BEEP
 unsetopt HIST_BEEP
 unsetopt LIST_BEEP
-#fast-theme sv-orple
-
-set -o PROMPT_SUBST
 unset setopt_if_exists

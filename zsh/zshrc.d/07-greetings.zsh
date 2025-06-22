@@ -12,3 +12,6 @@ fi
 
 #set -l toon (random choice {default,bud-frogs,dragon,dragon-and-cow,elephant,moose,stegosaurus,tux,vader})
 #fortune -s | cowsay -f $toon | lolcat
+
+set -o PROMPT_SUBST
+RPS1='$(mommy -c ${ZDOTDIR}/bin/mommy -1 -s $?)'

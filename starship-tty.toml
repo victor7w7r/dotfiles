@@ -40,11 +40,11 @@ style = 'bold #7088ff'
 
 [os.symbols]
 Windows = ' '
-Arch = '󰣇'
+Arch = ''
 Android = ' '
 Debian = ' '
 FreeBSD = ' '
-NetBSD = '󰉀 '
+NetBSD = ' '
 OpenBSD = ' '
 Macos = '󰀵'
 Unknown = '󰠥'
@@ -71,7 +71,7 @@ symbol = '[▶](#83e6ff)'
 format = '[$path]($style)[$read_only ]($read_only_style)'
 home_symbol = '~'
 read_only = '  '
-style = 'italic #83e6ff'
+style = ' #83e6ff'
 truncation_length = 3
 truncation_symbol = '…/'
 
@@ -94,27 +94,27 @@ style = 'dimmed #cc8afc'
 
 [bun]
 format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
+style = 'dimmed #83e6ff'
 symbol = ' '
 
 [dart]
 format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
+style = 'dimmed #83e6ff'
 symbol = ' '
 
 [java]
 format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
+style = 'dimmed #83e6ff'
 symbol = ' '
 
 [kotlin]
 format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
+style = 'dimmed #83e6ff'
 symbol = ' '
 
 [rust]
 format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
+style = 'dimmed #83e6ff'
 symbol = ' '
 
 [fill]
@@ -128,14 +128,14 @@ symbol = "\\(╯°□°）╯"
 
 [localip]
 disabled = false
-format = '[$localipv4]($style)[ 󰋑  ](#cc8afc)'
-style = 'italic dimmed #7088ff'
+format = '[$localipv4]($style)[  ](#cc8afc)'
+style = 'dimmed #7088ff'
 ssh_only = false
 
 [time]
 disabled = false
 format = '[$time]($style)'
-style = 'italic #83e6ff'
+style = '#83e6ff'
 time_format = '%I:%M:%S'
 use_12hr = true
 utc_time_offset = 'local'

@@ -56,7 +56,6 @@ alias joke='curl https://icanhazdadjoke.com'
 alias hackernews='curl hkkr.in'
 alias worldinternet='curl https://status.plaintext.sh/t'
 
-commandexist mommy && alias mom='mommy -1 -s $status'
 commandexist tmux && alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 commandexist zoxide && alias cd='z'
 commandexist rrr && alias rrr="ranger"
