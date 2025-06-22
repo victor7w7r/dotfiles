@@ -45,8 +45,7 @@ if [[ -o login && \
   -z "$FBTERM_SESSION_ID" && \
   -x "$(command -v fbterm)" ]]
 then
-  export TERM=fbterm
-  exec fbterm
+  exec fbterm -- /bin/zsh -l -c 'export TERM=fbterm'
 fi
 
 if [[ -o interactive && \

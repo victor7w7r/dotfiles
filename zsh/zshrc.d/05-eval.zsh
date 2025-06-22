@@ -1,6 +1,9 @@
-[[ "$OSTYPE" == "linux"* && -z "$SSH_AUTH_SOCK" ]] && eval $(keychain --eval --quiet --agents ssh id_rsa)
+if [[ "$OSTYPE" == darwin* && -x "$(command -v brew)" ]]; then
+  lazyload brew brewup brewupcask -- 'eval "$(/usr/local/bin/brew shellenv)"'
+elif [[ "$OSTYPE" == linux* && -d /home/linuxbrew/.linuxbrew ]]; then
+  lazyload brew brewup brewupcask -- 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+fi
 
-command -v brew &>/dev/null && lazyload brew brewup brewupcask -- 'eval "$(/usr/local/bin/brew shellenv)"'
 commandexist systemctl && lazyload systemctl -- 'systemctl --user import-environment PATH'
 commandexist fzf && lazyload fzf -- 'source <(fzf --zsh)'
 commandexist thefuck && lazyload thefuck -- 'eval $(thefuck --alias)'
