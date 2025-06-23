@@ -38,3 +38,5 @@ fpath=("$ZSH/functions" "$ZSH/completions" $fpath)
 
 unset SSH_ASKPASS
 unset PROMPT_FIRST_TIME
+
+[[ -n "${FBTERM}" ]] && export TERM=fbterm
