@@ -5,7 +5,7 @@ fi
 if [[ -o login && $(tty) =~ /dev/tty[0-9]+ && "$OSTYPE" != darwin* && -z "$SSH_TTY" ]]; then
   if [[ "$EUID" -eq 0 && -x "$(command -v starship)" ]]; then
     export STARSHIP_CONFIG="$HOME/.config/starship-tty-root.toml"
-  elif [[ "$EUID" -ne 0 && -x "$(command -v starship)" ]]; then
+  elif [[ "$EUID" -ne 0 && -x "$(command -v starship)" && -z "$SSH_TTY" ]]; then
     export STARSHIP_CONFIG="$HOME/.config/starship-tty.toml"
   fi
 elif [[ !($(tty) =~ /dev/tty[0-9]+) || "$OSTYPE" == darwin* ]]; then
