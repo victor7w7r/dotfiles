@@ -2,7 +2,7 @@ if command -v starship &>/dev/null; then
   export STARSHIP_CACHE="$HOME/.starship/cache"
 fi
 
-if [[ -o login && $(tty) =~ /dev/tty[0-9]+ && "$OSTYPE" != darwin* ]]; then
+if [[ -o login && $(tty) =~ /dev/tty[0-9]+ && "$OSTYPE" != darwin* && -z "$SSH_TTY" ]]; then
   if [[ "$EUID" -eq 0 && -x "$(command -v starship)" ]]; then
     export STARSHIP_CONFIG="$HOME/.config/starship-tty-root.toml"
   elif [[ "$EUID" -ne 0 && -x "$(command -v starship)" ]]; then

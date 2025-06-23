@@ -47,3 +47,8 @@ unsetopt BEEP
 unsetopt HIST_BEEP
 unsetopt LIST_BEEP
 unset setopt_if_exists
+
+bindkey '^[[1;2B' down-line-or-history
+bindkey '^[[1;2A' up-line-or-history
+bindkey '^[[1;2C' forward-word
+bindkey '^[[1;2D' backward-word
