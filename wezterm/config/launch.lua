@@ -16,7 +16,7 @@ if platform.is_win then
 elseif platform.is_mac then
   default_prog = { "/usr/local/bin/zsh", "-l"}
 elseif platform.is_linux then
-  default_prog = { 'zsh', '-l' }
+  default_prog = { '/bin/zsh', '-l' }
 end
 
 options.default_prog = default_prog

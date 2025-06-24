@@ -1,15 +1,7 @@
 local Config = require 'config'
-local wezterm = require 'wezterm'
 
 require('config.events').setup()
 require('config.events').setup_title()
-
-wezterm.on('mux-is-process-stateful', function(proc)
-  print(proc)
-
-  -- Just use the default behavior
-  return nil
-end)
 
 return Config:init()
   :append(require('config.appearance'))

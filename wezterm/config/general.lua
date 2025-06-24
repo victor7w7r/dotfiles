@@ -4,14 +4,25 @@ local platform = require 'utils.platform'
 local tables = require 'utils.tables'
 
 local gpu = {}
+local fonts = {}
 
 if platform.is_linux then
-  gpu.enable_wayland = true
+  gpu.enable_wayland = false
   gpu.prefer_egl = true
+  gpu.front_end = 'OpenGL'
+else
+  gpu.front_end = 'WebGpu'
+end
+
+if platform.is_mac then
+  fonts.font_size = 14
+else
+  fonts.font_size = 10
 end
 
 return tables.merge({
   gpu,
+  fonts,
   {
     automatically_reload_config = true,
     exit_behavior = 'CloseOnCleanExit',
@@ -30,20 +41,13 @@ return tables.merge({
       fade_out_duration_ms = 250,
       target = 'CursorColor'
     },
-    set_environment_variables = {
-      TERM = "xterm-256color",
-    },
 
     animation_fps = 120,
-    front_end = 'WebGpu',
     max_fps = 120,
     webgpu_force_fallback_adapter = false,
     webgpu_power_preference = "HighPerformance",
     webgpu_preferred_adapter = gpu_adapters:pick_best(),
-    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
-    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'Other'),
 
-    font_size = 14,
     freetype_load_target = 'Normal', ---@type 'Normal'|'Light'|'Mono'|'HorizontalLcd'
     freetype_render_target = 'Normal', ---@type 'Normal'|'Light'|'Mono'|'HorizontalLcd'
     font = wezterm.font({
