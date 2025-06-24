@@ -1,7 +1,6 @@
 local colors = require 'utils.catppuccin'
 local platform = require 'utils.platform'
 local tables = require 'utils.tables'
-local wezterm = require 'wezterm'
 
 local os = {}
 
@@ -9,18 +8,19 @@ if platform.is_mac then
   os.window_decorations = "RESIZE|TITLE|MACOS_FORCE_DISABLE_SHADOW"
   os.window_padding = { left = 9, right = 9, top = 12, bottom = 0 }
   os.macos_window_background_blur = 10
+  os.window_background_opacity = 0.93
   os.native_macos_fullscreen_mode = true
 elseif platform.is_win then
-  os.window_decorations = "RESIZE|TITLE|INTEGRATED_BUTTONS"
-  os.integrated_title_button_alignment = "Right"
-  os.integrated_title_button_style = "Windows"
-  os.win32_system_backdrop = "Acrylic"
-  os.integrated_title_buttons = { "Hide", "Maximize", "Close" }
+  os.window_decorations = "RESIZE|TITLE"
+  os.window_padding = { left = 12, right = 12, top = 0, bottom = 4 }
+  os.window_background_opacity = 0
+  os.win32_system_backdrop = "Tabbed"
 else
   os.window_decorations = "RESIZE|TITLE|INTEGRATED_BUTTONS"
   os.integrated_title_buttons = { "Close", "Hide", "Maximize" }
   os.integrated_title_button_alignment = "Left"
   os.integrated_title_button_style = "Gnome"
+  os.window_background_opacity = 0.93
   os.window_padding = { left = 12, right = 12, top = 10, bottom = 0 }
 end
 
@@ -35,12 +35,7 @@ return tables.merge({
     hide_mouse_cursor_when_typing = true,
     force_reverse_video_cursor = true,
     text_background_opacity = 0.4,
-    window_background_opacity = 0.93,
-    window_frame = {
-      inactive_titlebar_bg = "none",
-      active_titlebar_bg = "none",
-      font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Bold" })
-    },
+
     text_blink_ease_in = "EaseIn",
     text_blink_ease_out = "EaseOut",
     text_blink_rapid_ease_in = "Linear",

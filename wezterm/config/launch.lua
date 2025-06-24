@@ -6,15 +6,14 @@ local default_prog = {}
 local os_menu = {}
 
 if platform.is_win then
-  default_prog = { 'pwsh', '-NoLogo' }
+  default_prog = { 'ucrt64.cmd' }
   os_menu = {
-    { label = 'PowerShell Core', args = { 'pwsh', '-NoLogo' } },
-    { label = 'PowerShell Desktop', args = { 'powershell' } },
+    { label = 'PowerShell', args = { 'pwsh', '-NoLogo' } },
     { label = 'Command Prompt', args = { 'cmd' } },
     { label = 'Msys2', args = { 'ucrt64.cmd' } },
   }
 elseif platform.is_mac then
-  default_prog = { "/usr/local/bin/zsh", "-l"}
+  default_prog = { '/usr/local/bin/zsh', '-l'}
 elseif platform.is_linux then
   default_prog = { '/bin/zsh', '-l' }
 end

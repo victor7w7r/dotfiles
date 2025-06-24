@@ -20,7 +20,6 @@ command -v exa &>/dev/null && export EZA_COLORS="di=33:ln=35:so=32:pi=33:ex=31:b
 command -v vivid &>/dev/null && export LS_COLORS=$(vivid generate catppuccin-mocha)
 command -v fzf &>/dev/null && export FILTER="fzf"
 command -v carapace &>/dev/null && export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
-command -v vivid &>/dev/null && export LS_COLORS=$(vivid generate catppuccin-mocha)
 
 export ABBR_GET_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION=1

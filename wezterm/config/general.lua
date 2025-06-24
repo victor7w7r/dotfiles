@@ -6,12 +6,36 @@ local tables = require 'utils.tables'
 local gpu = {}
 local fonts = {}
 
-if platform.is_linux then
+if platform.is_mac then
+  gpu.front_end = 'WebGpu'
+elseif platform.is_linux then
   gpu.enable_wayland = false
   gpu.prefer_egl = true
   gpu.front_end = 'OpenGL'
 else
-  gpu.front_end = 'WebGpu'
+  gpu.front_end = 'OpenGL'
+end
+
+if platform.is_win then
+  fonts.font = wezterm.font({
+    family = 'JetBrainsMono Nerd Font Mono',
+    weight = 'Medium',
+  })
+  fonts.window_frame = {
+    inactive_titlebar_bg = "none",
+    active_titlebar_bg = "none",
+    font = wezterm.font({ family = "JetBrainsMono Nerd Font Mono", weight = "Bold" })
+  }
+else
+  fonts.font = wezterm.font({
+    family = 'JetBrainsMono Nerd Font',
+    weight = 'Medium',
+  })
+  fonts.window_frame = {
+    inactive_titlebar_bg = "none",
+    active_titlebar_bg = "none",
+    font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Bold" })
+  }
 end
 
 if platform.is_mac then
@@ -50,10 +74,6 @@ return tables.merge({
 
     freetype_load_target = 'Normal', ---@type 'Normal'|'Light'|'Mono'|'HorizontalLcd'
     freetype_render_target = 'Normal', ---@type 'Normal'|'Light'|'Mono'|'HorizontalLcd'
-    font = wezterm.font({
-      family = 'JetBrainsMono Nerd Font',
-      weight = 'Medium',
-    }),
 
     hyperlink_rules = {
       { regex = '\\((\\w+://\\S+)\\)', format = '$1', highlight = 1 },
