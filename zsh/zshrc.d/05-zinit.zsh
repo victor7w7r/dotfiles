@@ -6,8 +6,8 @@
 source "${ZINIT_HOME}/zinit.zsh"
 
 zi lucid for as"command" from"gh-r" \
-  atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-  atpull"%atclone" src"init.zsh" starship/starship \
+  if'is-notcygwin' atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+  if'is-notcygwin' atpull"%atclone" src"init.zsh" starship/starship \
   atinit"
     ZSH_TMUX_FIXTERM=false
     ZSH_TMUX_AUTOSTART=false
@@ -38,7 +38,7 @@ zi wait lucid for \
   if'is-linux' OMZP::archlinux \
   has'autojump' OMZP::autojump \
   has'bgnotify' OMZP::bgnotify \
-  OMZP::brew \
+  if'is-notcygwin' OMZP::brew \
   OMZP::bun \
   OMZP::colored-man-pages \
   OMZP::command-not-found \

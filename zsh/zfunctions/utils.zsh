@@ -13,6 +13,14 @@ function is-linux() {
   [[ $OSTYPE = *linux* ]] || return 1
 }
 
+function is-cygwin() {
+  [[ $OSTYPE = *cygwin* ]] || return 1
+}
+
+function is-notcygwin() {
+  [[ $OSTYPE != *cygwin* ]] || return 1
+}
+
 function setopt_if_exists() {
   if [[ "${options[$1]+1}" ]]; then
     setopt "$1"

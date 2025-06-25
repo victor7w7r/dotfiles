@@ -1,10 +1,19 @@
 function random-quote() {
-  case $(((RANDOM % 3) + 1)) in
-  1) customfortunes ;;
-  2) bofh ;;
-  3) facts ;;
-  4) fortune ;;
-  esac
+
+  if ! command -v starship &>/dev/null; then
+    case $(((RANDOM % 2) + 1)) in
+    1) customfortunes ;;
+    2) bofh ;;
+    3) facts ;;
+    esac
+  else
+    case $(((RANDOM % 3) + 1)) in
+    1) customfortunes ;;
+    2) bofh ;;
+    3) facts ;;
+    4) fortune ;;
+    esac
+  fi
 }
 
 function customfortunes() {
