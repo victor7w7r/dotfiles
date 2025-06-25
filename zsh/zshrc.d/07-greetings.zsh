@@ -3,10 +3,14 @@
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if command -v lolcat &>/dev/null; then uname -v | lolcat; else uname -v | lolcat; fi
-elif [[ "$OSTYPE" == "cygwin"* ]]; then
-  if command -v meow &>/dev/null; then uname -m -n -o -v | meow; else uname -m -n -o -v; fi
 else
-  if command -v lolcat &>/dev/null; then uname -m -n -o -v | lolcat; else uname -m -n -o -v; fi
+  if command -v lolcat &>/dev/null; then
+    uname -m -n -o -v | lolcat
+  elif command -v meow &>/dev/null; then
+    uname -m -n -o -v | meow
+  else
+    uname -m -n -o -v
+  fi
 fi
 
 if command -v lolcat &>/dev/null; then

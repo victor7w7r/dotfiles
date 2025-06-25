@@ -75,7 +75,7 @@ zi wait lucid for \
   Bhupesh-V/ugit \
   if'is-macos' zshzoo/macos \
   lainiwa/ph-marks \
-  Tarrasch/zsh-bd \
+  if'is-notcygwin' Tarrasch/zsh-bd \
   peterhurford/git-it-on.zsh \
   Schroefdop/git-branches \
   hlissner/zsh-autopair \

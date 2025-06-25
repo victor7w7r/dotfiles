@@ -15,6 +15,10 @@ if command -v gh >/dev/null && gh extension list | grep -q 'copilot'; then
   eval "$(gh copilot alias -- zsh)"
 fi
 
+if [[ "$OSTYPE" == cygwin* ]] && command -v starship >/dev/null; then
+  eval "$(starship init zsh)"
+fi
+
 if commandexist carapace; then
   zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
   zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
