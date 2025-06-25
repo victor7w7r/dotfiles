@@ -14,11 +14,11 @@ function is-linux() {
 }
 
 function is-cygwin() {
-  [[ $OSTYPE = *cygwin* ]] || return 1
+  [[ -n "$MSYSTEM" ]] || return 1
 }
 
 function is-notcygwin() {
-  [[ $OSTYPE != *cygwin* ]] || return 1
+  [[ -z "$MSYSTEM" ]] || return 1
 }
 
 function setopt_if_exists() {

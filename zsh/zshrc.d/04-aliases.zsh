@@ -116,7 +116,7 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   alias s='startx'
   alias oso=onesixtyone
   alias cme=crackmapexec
-elif [[ "$OSTYPE" == "cygwin" ]]; then
+elif [[ -n "$MSYSTEM" ]]; then
   alias oso=onesixtyone
   alias cme=crackmapexec
 fi

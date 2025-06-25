@@ -15,7 +15,7 @@ if command -v gh >/dev/null && gh extension list | grep -q 'copilot'; then
   eval "$(gh copilot alias -- zsh)"
 fi
 
-if [[ "$OSTYPE" == cygwin* ]] && command -v starship >/dev/null; then
+if [[ -n "$MSYSTEM" ]] && command -v starship >/dev/null; then
   eval "$(starship init zsh)"
 fi
 
