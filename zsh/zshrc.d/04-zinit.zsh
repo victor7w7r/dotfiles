@@ -71,7 +71,7 @@ zi wait lucid for \
   OMZP::web-search \
   OMZP::zoxide \
   OMZP::zsh-interactive-cd \
-  jeffreytse/zsh-vi-mode \
+  if'is-notcygwin' jeffreytse/zsh-vi-mode \
   Bhupesh-V/ugit \
   if'is-macos' zshzoo/macos \
   lainiwa/ph-marks \

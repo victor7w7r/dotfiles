@@ -6,11 +6,11 @@ local default_prog = {}
 local os_menu = {}
 
 if platform.is_win then
-  default_prog = { 'ucrt64.cmd', '-shell' ,'zsh', '-use-full-path' }
+  default_prog = { 'ucrt64.cmd', '-defterm', ' -no-start', '-shell' ,'zsh', '-use-full-path'}
   os_menu = {
     { label = 'PowerShell', args = { 'pwsh', '-NoLogo' } },
     { label = 'Command Prompt', args = { 'cmd' } },
-    { label = 'Msys2', args = { 'ucrt64.cmd', '-shell' ,'zsh', '-use-full-path' } },
+    { label = 'Msys2', args = { 'ucrt64.cmd', '-defterm', ' -no-start', '-shell' ,'zsh', '-use-full-path' } },
   }
 elseif platform.is_mac then
   default_prog = { '/usr/local/bin/zsh', '-l'}
