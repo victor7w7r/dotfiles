@@ -1,8 +1,10 @@
-function reload() {
-  ZDOTDIR=${ZDOTDIR:-$HOME}
-  . "$ZDOTDIR/.zshrc"
+function commandexist() {
+  command -v $1 &>/dev/null
+}
 
-  echo "Sourced $ZDOTDIR/.zshrc"
+function random-opts() {
+  local options=(-b -d -g -p -s -t -w -y)
+  echo ${options[$RANDOM % ${#options[@]} + 1]}
 }
 
 function is-macos() {
@@ -22,20 +24,8 @@ function is-notcygwin() {
 }
 
 function setopt_if_exists() {
-  if [[ "${options[$1]+1}" ]]; then
-    setopt "$1"
-  fi
+  if [[ "${options[$1]+1}" ]]; then setopt "$1"; fi
 }
-
-function random-opts() {
-  local options=(-b -d -g -p -s -t -w -y)
-  echo ${options[$RANDOM % ${#options[@]} + 1]}
-}
-
-function commandexist() {
-  command -v $1 &> /dev/null
-}
-
 
 function x() {
   if [ $# -eq 1 ]; then
@@ -46,8 +36,4 @@ function x() {
     echo "Usage: x VARIABLE [VALUE]"
     return 1
   fi
-}
-
-function colormap() {
-  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }

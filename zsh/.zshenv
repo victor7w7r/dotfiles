@@ -1,25 +1,11 @@
-echo -ne '\e[5 q'
-
-export ZSH="${HOME}/.zsh"
-export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
-export ZFUNCDIR="${ZDOTDIR}/zfunctions"
-export HISTFILE="${ZSH}/.history"
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
-export HISTORY_IGNORE="(ls|cd|cd -|pwd|exit|date|* --help)"
-export ZSH_COMPDUMP="${ZSH}/.zcompdump"
-export ZSH_CACHE_DIR="${ZSH}/cache"
-export PLUGINS_DIR="${ZDOTDIR}/plugins"
-export ZINIT_HOME="${ZSH}/zinit/zinit.git"
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export GPG_TTY=$(tty)
 export COLORTERM="truecolor"
 export SHELL="zsh"
-export ZSHRCD="${ZDOTDIR}/zshrc.d"
 export TERMINAL="wezterm"
-export PYENV_ROOT="${HOME}/.pyenv"
+export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
+export ZSHEXECDIR="${HOME}/.zsh"
 
 typeset -gU path fpath
 
@@ -30,13 +16,8 @@ path=(
   $HOME/{,s}bin(N)
   /usr/local/{,s}bin(N)
   node_modules/.bin
-  $PYENV_ROOT/bin
-  $ZFUNCDIR
+  $HOME/.pyenv/bin
+  $ZDOTDIR/zfunctions
   $path
 )
 fpath=("$ZSH/functions" "$ZSH/completions" $fpath)
-
-unset SSH_ASKPASS
-unset PROMPT_FIRST_TIME
-
-[[ -n "${FBTERM}" ]] && export TERM=fbterm

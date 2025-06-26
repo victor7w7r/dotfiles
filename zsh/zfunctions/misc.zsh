@@ -90,26 +90,6 @@ function mvcd() {
   fi
 }
 
-function ranger() {
-  if [ -z "$RANGER_LEVEL" ]; then
-    tempfile=$(mktemp -t tmp.XXXXXX)
-    command ranger --choosedir="$tempfile" "$@"
-    return_value=$?
-
-    if [ -s "$tempfile" ]; then
-      ranger_pwd=$(cat "$tempfile")
-      if [ -n "$ranger_pwd" ] && [ -d "$ranger_pwd" ]; then
-        cd -- "$ranger_pwd"
-      fi
-    fi
-
-    rm -f -- "$tempfile"
-    return $return_value
-  else
-    exit
-  fi
-}
-
 function cheat() {
   navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
   if [ $# -eq 0 ]; then
@@ -125,7 +105,6 @@ function cwd() {
   elif [ "$OS" = "Darwin" ]; then
     echo -n "$(echo $PWD | sed "s|^$HOME|~|")" | tr -d "\r\n" | pbcopy
   fi
-  # También copia al buffer de tmux si está activo
   if [ -n "$TMUX" ]; then
     echo -n "$(echo $PWD | sed "s|^$HOME|~|")" | tr -d "\r\n" | tmux load-buffer -
   fi
@@ -159,16 +138,6 @@ function mux() {
   fi
 }
 
-function tnew() {
-  tmux new -s "$(basename $(pwd) | cut -d'.' -f1)"
-}
-
-function beep() {
-  echo -e '\a'
-  sleep 0.1
-  echo -e '\a'
-}
-
 function clone() {
   git clone --depth=1 "$1"
   cd "$(basename "$1" | sed 's/.git$//')"
@@ -182,34 +151,8 @@ function emptytrash() {
   sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
 }
 
-function c_prettyping() {
-  echo ""
-  if [ $# -eq 0 ]; then
-    prettyping --nolegend "1.1.1.1"
-  else
-    prettyping --nolegend "$@"
-  fi
-}
-
-function treload() {
-  tmux source-file ~/.config/tmux/tmux.conf
-  tmux display-message "TMUX Config Reloaded"
-}
-
-function path() {
-  echo $PATH | tr ":" "\n" | nl
-}
-
-function reload() {
-  exec zsh "$@"
-}
-
 function tka() {
   tmux ls | cut -d : -f 1 | xargs -I {} tmux kill-session -t {}
-}
-
-function tn() {
-  tmux new -s "$1"
 }
 
 function tna() {
@@ -239,7 +182,7 @@ function manpdf() {
   man -t "$1" | open -f -a /Applications/Preview.app
 }
 
-compress() {
+function compress() {
   if [[ -n "$1" ]]; then
     local file=$1
     shift

@@ -2,20 +2,20 @@
 #fortune -s | cowsay -f $toon | lolcat
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if command -v lolcat &>/dev/null; then uname -v | lolcat; else uname -v | lolcat; fi
+  if commandexist lolcat; then uname -v | lolcat; else uname -v | lolcat; fi
 else
-  if command -v lolcat &>/dev/null; then
+  if commandexist lolcat; then
     uname -m -n -o -v | lolcat
-  elif command -v meow &>/dev/null; then
+  elif commandexist meow; then
     uname -m -n -o -v | meow
   else
     uname -m -n -o -v
   fi
 fi
 
-if command -v lolcat &>/dev/null; then
+if commandexist lolcat; then
   echo "Welcome to $(uname)!" | lolcat
-elif command -v meow &>/dev/null; then
+elif commandexist meow; then
   echo "Welcome to $(uname)!" | meow
 else
   echo "Welcome to $(uname)!"

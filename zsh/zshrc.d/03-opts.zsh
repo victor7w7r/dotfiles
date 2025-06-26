@@ -7,7 +7,6 @@ setopt_if_exists AUTO_MENU
 setopt_if_exists AUTO_REMOVE_SLASH
 setopt_if_exists AUTO_PARAM_SLASH
 setopt_if_exists GLOB_COMPLETE
-
 setopt_if_exists BANG_HIST
 setopt_if_exists EXTENDED_HISTORY
 setopt_if_exists INC_APPEND_HISTORY
@@ -26,7 +25,6 @@ setopt_if_exists HIST_REDUCE_BLANKS
 setopt_if_exists appendhistory
 setopt_if_exists sharehistory
 setopt_if_exists incappendhistory
-
 setopt_if_exists AUTO_CD
 setopt_if_exists AUTO_PUSHD
 setopt_if_exists PUSHD_IGNORE_DUPS
@@ -38,7 +36,6 @@ setopt_if_exists NO_CHASE_DOTS
 setopt_if_exists NO_CHASE_LINKS
 setopt_if_exists NO_POSIX_CD
 setopt_if_exists PUSHD_MINUS
-
 setopt_if_exists COMPLETE_IN_WORD
 setopt_if_exists LIST_PACKED
 setopt_if_exists MENU_COMPLETE
@@ -47,6 +44,8 @@ unsetopt BEEP
 unsetopt HIST_BEEP
 unsetopt LIST_BEEP
 unset setopt_if_exists
+unset SSH_ASKPASS
+unset PROMPT_FIRST_TIME
 
 bindkey '^[[1;2B' down-line-or-history
 bindkey '^[[1;2A' up-line-or-history

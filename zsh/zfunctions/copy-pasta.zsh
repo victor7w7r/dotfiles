@@ -1,9 +1,7 @@
 copy() { (
   local copy_pasta_folder="/tmp/copy-pasta"
-  # Exit on missing vars or failure for safety
   set -u
   set -e
-  # Don't print errors on glob fail
   setopt +o nomatch
 
   if [ $# -lt 1 ]; then
@@ -29,13 +27,10 @@ EOF
 
 ); }
 
-# Operates in a subshell so we can exit on errors for safety
 pasta() { (
   local copy_pasta_folder="/tmp/copy-pasta"
-  # Exit on missing vars or failure for safety
   set -u
   set -e
-  # Don't print errors on glob fail
   setopt +o nomatch
 
   if [ $# -gt 1 ]; then

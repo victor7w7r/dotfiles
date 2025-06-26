@@ -1,91 +1,50 @@
-export em_confused='¯\_(⊙︿⊙)_/¯'
-export em_crying='ಥ_ಥ'
-export em_cute_bear='ʕ•ᴥ•ʔ'
-export em_cute_face='(｡◕‿◕｡)'
-export em_excited='☜(⌒▽⌒)☞'
-export em_fisticuffs='ლ(｀ー´ლ)'
-export em_fliptable='(╯°□°）╯︵ ┻━┻'
-export em_person_flip_table=$em_fliptable
-export em_person_flip_person='(╯°Д°）╯︵/(.□ . \)\'
-export em_table_flip_person='ノ┬─┬ノ ︵ ( \o°o)\'
-export em_person_unflip_table='┬──┬◡ﾉ(° -°ﾉ)'
-export em_happy='ヽ(´▽`)/'
-export em_innocent='ʘ‿ʘ'
-export em_kirby='⊂(◉‿◉)つ'
-export em_lennyface='( ͡° ͜ʖ ͡°)'
-export em_lion='°‿‿°'
-export em_muscleflex='ᕙ(⇀‸↼‶)ᕗ'
-export em_muscleflex2='ᕦ(∩◡∩)ᕤ'
-export em_perky='(`・ω・´)'
-export em_piggy='( ́・ω・`)'
-export em_shrug='¯\_(ツ)_/¯'
-export em_point_right='(☞ﾟヮﾟ)☞'
-export em_point_left='☜(ﾟヮﾟ☜)'
-export em_magic='╰(•̀ 3 •́)━☆ﾟ.*･｡ﾟ'
-export em_shades='(•_•)
-( •_•)>⌐■-■
-(⌐■_■)'
-export em_disapprove='ಠ_ಠ'
-export em_wink='ಠ‿↼'
-export em_facepalm='(－‸ლ)'
-export em_hataz_gon_hate='ᕕ( ᐛ )ᕗ'
-export em_salute='(￣^￣)ゞ'
-
-function emoji() {
-  case "$1" in
-    -h|--help|help)
-      printf "\"emoji\" puts various funny expressions in the system clipboard\n\n"
-      printf " --hunh for ಠ_ಠ\n\n"
-      printf " --shrug -s for ¯\_(ツ)_/¯\n\n"
-      printf " --table-flip -tf for (╯°□°）╯︵ ┻━┻\n\n"
-      printf " --trolling for ༼∵༽ ༼⍨༽ ༼⍢༽ ༼⍤༽\n\n"
-      printf " --yay -y for ✧*｡٩(ˊᗜˋ*)و✧*｡\n\n"
-      return 0
-      ;;
-    --hunh)
-      if command -v pbcopy >/dev/null 2>&1; then
-        echo -n "ಠ_ಠ" | pbcopy
-      elif command -v xsel >/dev/null 2>&1; then
-        echo -n "ಠ_ಠ" | xsel --clipboard
-      fi
-      ;;
-    -s|--shrug)
-      if command -v pbcopy >/dev/null 2>&1; then
-        echo -n "¯\_(ツ)_/¯" | pbcopy
-      elif command -v xsel >/dev/null 2>&1; then
-        echo -n "¯\_(ツ)_/¯" | xsel --clipboard
-      fi
-      ;;
-    -tf|--table-flip)
-      if command -v pbcopy >/dev/null 2>&1; then
-        echo -n "(╯°□°）╯︵ ┻━┻" | pbcopy
-      elif command -v xsel >/dev/null 2>&1; then
-        echo -n "(╯°□°）╯︵ ┻━┻" | xsel --clipboard
-      fi
-      ;;
-    --trolling)
-      if command -v pbcopy >/dev/null 2>&1; then
-        echo -n "༼∵༽ ༼⍨༽ ༼⍢༽ ༼⍤༽" | pbcopy
-      elif command -v xsel >/dev/null 2>&1; then
-        echo -n "༼∵༽ ༼⍨༽ ༼⍢༽ ༼⍤༽" | xsel --clipboard
-      fi
-      ;;
-    -y|--yay)
-      if command -v pbcopy >/dev/null 2>&1; then
-        echo -n "✧*｡٩(ˊᗜˋ*)و✧*｡" | pbcopy
-      elif command -v xsel >/dev/null 2>&1; then
-        echo -n "✧*｡٩(ˊᗜˋ*)و✧*｡" | xsel --clipboard
-      fi
-      ;;
-    *)
-      printf "Unknown option: '%s'\n" "$1"
-      printf "\n"
-      printf " --hunh for ಠ_ಠ\n\n"
-      printf " --shrug -s for ¯\_(ツ)_/¯\n\n"
-      printf " --table-flip -tf for (╯°□°）╯︵ ┻━┻\n\n"
-      printf " --trolling for ༼∵༽ ༼⍨༽ ༼⍢༽ ༼⍤༽\n\n"
-      printf " --yay -y for ✧*｡٩(ˊᗜˋ*)و✧*｡\n\n"
-      return 1
-      ;;
+function kaomoji() {
+  case $((RANDOM % 45)) in
+  0) printf "〜⁠(⁠꒪⁠꒳⁠꒪⁠)⁠〜" ;;
+  1) printf "∑( ºロº) !!" ;;
+  2) printf "(/>д<)/*✧" ;;
+  3) printf "¯\_(⊙︿⊙)_/¯" ;;
+  4) printf "ಥ_ಥ" ;;
+  5) printf "ʕ•ᴥ•ʔ" ;;
+  6) printf "(｡◕‿◕｡)" ;;
+  7) printf "☜(⌒▽⌒)☞" ;;
+  8) printf "ლ(｀ー´ლ)" ;;
+  9) printf "(✿◠‿◠)" ;;
+  10) printf "(ಥ﹏ಥ)" ;;
+  11) printf "(☞ ͡° ͜ʖ ͡°)☞" ;;
+  12) printf "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧" ;;
+  13) printf "ヽ(´▽\`)/" ;;
+  14) printf "ʘ‿ʘ" ;;
+  15) printf "⊂(◉‿◉)つ" ;;
+  16) printf "( ͡° ͜ʖ ͡°)" ;;
+  17) printf "°‿‿°" ;;
+  18) printf "ᕙ(⇀‸↼‶)ᕗ" ;;
+  19) printf "ᕦ(∩◡∩)ᕤ" ;;
+  20) printf "(\`・ω・´)" ;;
+  21) printf "( ́・ω・\`)" ;;
+  22) printf "¯\_(ツ)_/¯" ;;
+  23) printf "(☞ﾟヮﾟ)☞" ;;
+  24) printf "☜(ﾟヮﾟ☜)" ;;
+  25) printf "╰(•̀ 3 •́)━☆ﾟ.*･｡ﾟ" ;;
+  26) printf "(•_•)" ;;
+  27) printf "ಠ_ಠ" ;;
+  28) printf "ಠ‿↼" ;;
+  29) printf "(－‸ლ)" ;;
+  30) printf "ᕕ( ᐛ )ᕗ" ;;
+  31) printf "(￣^￣)ゞ" ;;
+  32) printf "( •_•)>⌐■-■" ;;
+  33) printf "(⌐■_■)" ;;
+  34) printf "(•‿•)" ;;
+  35) printf "(¬‿¬)" ;;
+  36) printf "(｡♥‿♥｡)" ;;
+  37) printf "(☞ﾟ∀ﾟ)☞" ;;
+  38) printf "(づ｡◕‿‿◕｡)づ" ;;
+  39) printf "(ノಠ益ಠ)ノ" ;;
+  40) printf "(¬_¬)" ;;
+  41) printf "ʕ•́ᴥ•̀ʔっ" ;;
+  42) printf "(ง'̀-'́)ง" ;;
+  43) printf "(｡•́︿•̀｡)" ;;
+  44) printf "(≧◡≦)" ;;
+  45) printf "(づ￣ ³￣)づ" ;;
   esac
 }

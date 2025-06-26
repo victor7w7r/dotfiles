@@ -20,6 +20,7 @@ $kotlin\
 $rust\
 $fill\
 
+$custom\
 $status\
 $localip\
 $battery\
@@ -119,6 +120,11 @@ symbol = ' '
 
 [fill]
 symbol = ' '
+
+[custom.kaomoji]
+command = "kaomoji"
+style = 'dimmed #83e6ff'
+when = "true"
 
 [status]
 disabled = false

@@ -20,6 +20,7 @@ $kotlin\
 $rust\
 $fill\
 
+$custom\
 $status\
 $localip\
 $battery\
@@ -116,6 +117,11 @@ symbol = ' '
 format = '[$symbol(${version} )]($style)'
 style = 'italic dimmed #83e6ff'
 symbol = ' '
+
+[custom.kaomoji]
+command = "kaomoji"
+style = 'dimmed #83e6ff'
+when = "true"
 
 [fill]
 symbol = ' '

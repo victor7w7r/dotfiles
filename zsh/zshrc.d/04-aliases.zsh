@@ -30,6 +30,14 @@ alias lzd="lazydocker"
 alias vifish="nvim $HOME/.config/fish/config.fish && source $HOME/.config/fish/config.fish"
 alias killn='killall -q'
 
+alias reload='. "$ZDOTDIR/.zshrc" && echo "Sourced $ZDOTDIR/.zshrc"'
+alias colormap='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
+alias beep='echo -e "\a"; sleep 0.1; echo -e "\a"'
+
+alias zupdate='zinit update --parallel 40'
+alias zselfupdate='zinit self-update'
+alias zreset='rm -rf "${ZSHEXECDIR}/zinit" &>/dev/null && rm -rf "${HOME}/.local/share/zinit" &>/dev/null'
+
 alias timestamp="date '+%Y-%m-%d %H:%M:%S'"
 alias datestamp="date '+%Y-%m-%d'"
 alias isodate="date +%Y-%m-%dT%H:%M:%S%z"
@@ -55,17 +63,19 @@ alias tinyurl='curl -s "http://tinyurl.com/api-create.php?url='
 alias joke='curl https://icanhazdadjoke.com'
 alias hackernews='curl hkkr.in'
 alias worldinternet='curl https://status.plaintext.sh/t'
+alias path='echo $PATH | tr ":" "\n" | nl'
 
 commandexist tmux && alias tmux='tmux -f ~/.config/tmux/tmux.conf'
+commandexist tmux && alias treload='tmux source-file ~/.config/tmux/tmux.conf && tmux display-message "TMUX Config Reloaded"'
 commandexist zoxide && alias cd='z'
 commandexist rrr && alias rrr="ranger"
 commandexist nnn && alias nnn="nnn -e"
 commandexist fastfetch && alias ff="fastfetch -c $HOME/.config/fastfetch/config.conf"
-
 commandexist htop && alias top='htop'
 commandexist gotop && alias top='gotop -p $([ "$COLOR_SCHEME" = "light" ] && echo "-c default-dark")'
 commandexist ytop && alias top='ytop -p $([ "$COLOR_SCHEME" = "light" ] && echo "-c default-dark")'
 commandexist btm && alias top='btm $([ "$COLOR_SCHEME" = "light" ] && echo "--color default-light")'
+commandexist flatpak && alias flatupdate="flatpak update; flatpak remove --unused"
 
 if commandexist bat; then
   alias cat="bat -P --paging=never"
@@ -73,9 +83,32 @@ if commandexist bat; then
 fi
 
 if commandexist brew; then
+  alias update='\
+    brew -v update ; \
+    brew upgrade ; \
+    brew upgrade --cask --greedy --verbose ; \
+    brew upgrade --force-bottle ; \
+    brew cleanup ; \
+    brew doctor \
+  '
   alias brewinfo="brew leaves | xargs brew desc --eval-all"
-  alias brewup="brew -v update; brew upgrade --force-bottle; brew cleanup; brew doctor"
-  alias brewupcask="brew -v update; brew upgrade --cask --greedy --verbose; brew cleanup; brew doctor"
+elif [["$EUID" -ne 0]] && commandexist yay; then
+  alias update=sh -c "
+    set -e
+    yay -Syyu --answerupgrade None --answerclean All --answerdiff None
+    sudo pacman -Rscn $(pacman -Qdqtt) 2>/dev/null
+    yay -Scc --noconfirm
+  "
+elif commandexist apt; then
+  alias update=sudo sh -c "
+		set -e
+		export DEBIAN_FRONTEND=noninteractive
+		dpkg --configure -a
+		apt update
+		apt -y --fix-broken --fix-missing full-upgrade
+		apt -y autoremove --purge
+		apt clean
+	"
 fi
 
 if commandexist eza; then
