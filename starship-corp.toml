@@ -1,0 +1,160 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+command_timeout = 2000
+
+format = """
+[╭╴](#83e6ff)\
+$os\
+$username\
+[@](#83e6ff)\
+$hostname\
+$jobs\
+$directory\
+$sudo\
+$cmd_duration\
+$bun\
+$dart\
+$java\
+$kotlin\
+$rust\
+$fill\
+
+$status\
+$localip\
+$battery\
+$time
+[╰⎯](#83e6ff)\
+$character
+"""
+
+[character]
+success_symbol = '[\$](bold #83e6ff)'
+error_symbol = '[\$](bold #83e6ff)'
+vimcmd_symbol = '[](bold #83e6ff)'
+
+[os]
+disabled = false
+format = '[$symbol]($style)'
+style = 'bold #83e6ff'
+
+[os.symbols]
+Windows = ' '
+Arch = '󰣇'
+Android = ' '
+Debian = ' '
+FreeBSD = ' '
+NetBSD = '󰉀 '
+OpenBSD = ' '
+Macos = '󰀵'
+Unknown = '󰠥'
+
+[username]
+disabled = false
+format = ' (black bold)[$user]($style)'
+show_always = true
+style_user = 'bold #83e6ff'
+
+[hostname]
+disabled = false
+format = '[$hostname ]($style)'
+ssh_only = false
+style = 'bold #83e6ff'
+
+[jobs]
+format = '[$symbol$number]($style) '
+style = 'bold #83e6ff'
+symbol = '[▶](#83e6ff)'
+
+[directory]
+format = '[$path]($style)[$read_only ]($read_only_style)'
+home_symbol = '~'
+read_only = '  '
+style = 'italic #83e6ff'
+truncation_length = 3
+truncation_symbol = '…/'
+
+[directory.substitutions]
+'Documents' = '󰈙 '
+'Downloads' = ' '
+'Music' = ' '
+'Pictures' = ' '
+
+[sudo]
+disabled = false
+format = '[\[$symbol\] ]($style)'
+style = 'bold #ff5990'
+symbol = '⚡'
+
+[cmd_duration]
+disabled = false
+format = '[ $duration]($style) '
+style = 'dimmed #83e6ff'
+
+[bun]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[dart]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[java]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[kotlin]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[rust]
+format = '[$symbol(${version} )]($style)'
+style = 'italic dimmed #83e6ff'
+symbol = ' '
+
+[fill]
+symbol = ' '
+
+[custom.kaomoji]
+command = "kaomoji"
+style = 'dimmed #83e6ff'
+when = "true"
+
+[status]
+disabled = false
+failure_style = 'bold #ff5990'
+format = '[$symbol\[$status\] ]($style)'
+symbol = ""
+
+[localip]
+disabled = false
+format = '[$localipv4  ]($style)'
+style = 'italic dimmed #83e6ff'
+ssh_only = false
+
+[time]
+disabled = false
+format = '[$time]($style)'
+style = 'italic #83e6ff'
+time_format = '%I:%M:%S'
+use_12hr = true
+utc_time_offset = 'local'
+
+[vagrant]
+disabled = true
+
+[helm]
+disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
+
+[terraform]
+disabled = true
