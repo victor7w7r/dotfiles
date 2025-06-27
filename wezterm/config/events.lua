@@ -54,6 +54,7 @@ M.setup_title = function()
           local cmd = ps_stdout
           :gsub("^%s+", "")
           :gsub("%s+$", "")
+          :sub(6)
           cached_title = "(/>w<)/ ... " .. cmd
           return
         end
