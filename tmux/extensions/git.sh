@@ -71,13 +71,9 @@ getMessage() {
     fi
     echo "$output"
   else
-    echo "NO REPO"
+    echo ""
   fi
 }
 
-main() {
-  path=$(getPaneDir)
-  getMessage
-}
-
-main
+path=$(getPaneDir)
+getMessage >/tmp/git.exectmux

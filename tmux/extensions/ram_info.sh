@@ -10,7 +10,7 @@ get_ratio() {
     echo "${formated//i/B}"
     ;;
   Darwin)
-    used_mem=$(vm_stat | grep ' active\|wired\|compressor\|speculative' | sed 's/[^0-9]//g' | paste -sd ' ' - | awk -v pagesize=$(pagesize) '{printf "%d\n", ($1+$2+$3+$5) * pagesize / 1048576}')
+    used_mem=$(vm_stat | grep ' active\|wired\|compressor\|speculative' | sed 's/[^0-9]//g' | paste -sd ' ' - | awk -v pagesize="$(pagesize)" '{printf "%d\n", ($1+$2+$3+$5) * pagesize / 1048576}')
     total_mem=$(sysctl -n hw.memsize | awk '{print $0/1024/1024/1024 " GB"}')
     if ((used_mem < 1024)); then
       echo "${used_mem}MB/$total_mem"
@@ -56,9 +56,5 @@ get_ratio() {
   esac
 }
 
-main() {
-  ram_ratio=$(get_ratio)
-  echo "  $ram_ratio"
-}
-
-main
+ram_ratio=$(get_ratio)
+echo "  $ram_ratio" >/tmp/ram_info.exectmux

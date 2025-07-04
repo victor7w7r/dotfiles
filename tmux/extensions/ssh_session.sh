@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-export LC_ALL=en_US.UTF-8
 
 show_ssh_session_port=$1
 
 parse_ssh_port() {
-  local port=$(echo $1 | grep -Eo '\-p\s*([0-9]+)' | sed 's/-p\s*//')
+  local port=$(echo "$1" | grep -Eo '\-p\s*([0-9]+)' | sed 's/-p\s*//')
   if [ -z "$port" ]; then local port=22; fi
   echo "$port"
 }
@@ -34,10 +33,10 @@ parse_ssh_config() {
 }
 
 get_ssh_user() {
-  if [ -f ~/.ssh/config ]; then ssh_user=$(parse_ssh_config ~/.ssh/config $1); fi
-  if [ -z $ssh_user ]; then ssh_user=$(parse_ssh_config /etc/ssh/ssh_config $1); fi
-  if [ -z $ssh_user ]; then ssh_user=$(whoami); fi
-  echo $ssh_user
+  if [ -f ~/.ssh/config ]; then ssh_user=$(parse_ssh_config ~/.ssh/config "$1"); fi
+  if [ -z "$ssh_user" ]; then ssh_user=$(parse_ssh_config /etc/ssh/ssh_config "$1"); fi
+  if [ -z "$ssh_user" ]; then ssh_user=$(whoami); fi
+  echo "$ssh_user"
 }
 
 get_remote_info() {
@@ -47,11 +46,11 @@ get_remote_info() {
     ps -o command -p $(tmux display-message -p "#{pane_pid}")
   } | xargs -I{} echo {} | grep ssh | sed -E 's/^[0-9]*[[:blank:]]*ssh //')
   local port=$(parse_ssh_port "$cmd")
-  local cmd=$(echo $cmd | sed 's/\-p\s*'"$port"'//g')
-  local user=$(echo $cmd | awk '{print $NF}' | cut -f1 -d@)
-  local host=$(echo $cmd | awk '{print $NF}' | cut -f2 -d@)
+  local cmd=$(echo "$cmd" | sed 's/\-p\s*'"$port"'//g')
+  local user=$(echo "$cmd" | awk '{print $NF}' | cut -f1 -d@)
+  local host=$(echo "$cmd" | awk '{print $NF}' | cut -f2 -d@)
 
-  if [ $user == $host ]; then local user=$(get_ssh_user $host); fi
+  if [ $user == $host ]; then local user=$(get_ssh_user "$host"); fi
 
   case "$1" in
   "whoami") echo $user ;;
@@ -70,17 +69,13 @@ ssh_connected() {
   [ $cmd = "ssh" ] || [ $cmd = "sshpass" ]
 }
 
-main() {
-  hostname=$(get_info hostname)
-  user=$(get_info whoami)
-  if ! $(ssh_connected); then
-    echo ""
-  elif $(ssh_connected) && [ "$show_ssh_session_port" == "true" ]; then
-    port=$(get_info port)
-    echo $user@$hostname:$port
-  else
-    echo $user@$hostname
-  fi
-}
-
-main
+hostname=$(get_info hostname)
+user=$(get_info whoami)
+if ! $(ssh_connected); then
+  echo "" >/tmp/ssh_session.exectmux
+elif $(ssh_connected) && [ "$show_ssh_session_port" == "true" ]; then
+  port=$(get_info port)
+  echo $user@$hostname:$port >/tmp/ssh_session.exectmux
+else
+  echo $user@$hostname >/tmp/ssh_session.exectmux
+fi

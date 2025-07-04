@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 export LC_ALL=en_US.UTF-8
 
-HOSTS=$(get_tmux_option "@dracula-network-hosts" "google.com github.com example.com")
-
 get_ssid() {
   case $(uname -s) in
   Linux)
@@ -23,15 +21,10 @@ get_ssid() {
   CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
   *) ;;
   esac
-
 }
 
-main() {
-  if ping -q -c 1 -W 1 "google.com" &>/dev/null; then
-    get_ssid
-  else
-    echo "Offline"
-  fi
-}
-
-main
+if ping -q -c 1 -W 1 "google.com" &>/dev/null; then
+  get_ssid >/tmp/network.exectmux
+else
+  echo "Offline" >/tmp/network.exectmux
+fi

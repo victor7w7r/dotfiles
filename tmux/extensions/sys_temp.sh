@@ -9,9 +9,5 @@ get_temp() {
   fi
 }
 
-main() {
-  echo "$(get_temp)"
-  sleep 5
-}
-
-main
+echo "$(get_temp)" >/tmp/sys_temp.exectmux
+sleep 5

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export LC_ALL=en_US.UTF-8
 
 linux_acpi() {
   arg=$1
@@ -92,17 +91,13 @@ battery_status() {
   esac
 }
 
-main() {
-  bat_stat=$(battery_status)
-  bat_perc=$(battery_percent)
+bat_stat=$(battery_status)
+bat_perc=$(battery_percent)
 
-  if [ -z "$bat_stat" ]; then
-    echo "$bat_perc"
-  elif [ -z "$bat_perc" ]; then
-    echo "AC"
-  else
-    echo "$bat_stat $bat_perc"
-  fi
-}
-
-main
+if [ -z "$bat_stat" ]; then
+  echo "$bat_perc" >/tmp/battery.exectmux
+elif [ -z "$bat_perc" ]; then
+  echo "" >/tmp/battery.exectmux
+else
+  echo "$bat_stat $bat_perc" >/tmp/battery.exectmux
+fi

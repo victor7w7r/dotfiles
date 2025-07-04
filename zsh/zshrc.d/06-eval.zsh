@@ -28,5 +28,7 @@ commandexist thefuck && lazyload thefuck -- 'eval $(thefuck --alias)'
 commandexist pyenv && lazyload pyenv -- 'eval $(pyenv init --path)'
 commandexist gh && gh extension list | grep -q 'copilot' && eval "$(gh copilot alias -- zsh)"
 
+which pyenv-virtualenv-init >/dev/null && eval "$(pyenv virtualenv-init -)"
+
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 [[ -n "$MSYSTEM" ]] && commandexist starship && eval "$(starship init zsh)"

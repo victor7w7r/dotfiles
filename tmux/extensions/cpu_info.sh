@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export LC_ALL=en_US.UTF-8
 
 normalize_percent_len() {
   max_len=5
@@ -37,9 +36,5 @@ get_percent() {
   esac
 }
 
-main() {
-  echo "  $(get_percent)"
-  sleep 1
-}
-
-main
+echo " $(get_percent)" >/tmp/cpu_info.exectmux
+sleep 0.6
