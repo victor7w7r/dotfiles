@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export LC_ALL=en_US.UTF-8
 
 get_ratio() {
   case $(uname -s) in
@@ -56,5 +55,9 @@ get_ratio() {
   esac
 }
 
-ram_ratio=$(get_ratio)
-echo "  $ram_ratio" >/tmp/ram_info.exectmux
+main() {
+  ram_ratio=$(get_ratio)
+  echo "  $ram_ratio"
+}
+
+main

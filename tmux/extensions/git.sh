@@ -37,7 +37,7 @@ getPaneDir() {
 checkForChanges() {
   no_untracked="" || no_untracked="-uno"
   if [ "$(checkForGitDir)" == "true" ]; then
-    if [ "$(git -C $path --no-optional-locks status -s $no_untracked)" != "" ]; then
+    if [ "$(git -C "$path" --no-optional-locks status -s $no_untracked)" != "" ]; then
       echo "true"
     else
       echo "false"
@@ -52,22 +52,22 @@ checkForGitDir() {
 }
 
 getBranch() {
-  if [ $(checkForGitDir) == "true" ]; then
-    echo $(git -C $path rev-parse --abbrev-ref HEAD)
+  if [ "$(checkForGitDir)" == "true" ]; then
+    git -C "$path" rev-parse --abbrev-ref HEAD
   else
     echo "NO REPO"
   fi
 }
 
 getMessage() {
-  if [ $(checkForGitDir) == "true" ]; then
+  if [ "$(checkForGitDir)" == "true" ]; then
     branch="$(getBranch)"
     output=""
-    if [ $(checkForChanges) == "true" ]; then
+    if [ "$(checkForChanges)" == "true" ]; then
       changes="$(getChanges)"
-      output=$(echo "! ${changes} $branch")
+      output="! ${changes} $branch"
     else
-      output=$(echo "$✓ $branch")
+      output="$✓ $branch"
     fi
     echo "$output"
   else
@@ -75,5 +75,4 @@ getMessage() {
   fi
 }
 
-path=$(getPaneDir)
-getMessage >/tmp/git.exectmux
+path=$(getPaneDir) && getMessage

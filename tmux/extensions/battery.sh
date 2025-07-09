@@ -34,8 +34,8 @@ battery_percent() {
     percent=$(linux_acpi percent)
     [ -n "$percent" ] && echo "$percent%"
     ;;
-  Darwin) echo $(pmset -g batt | grep -Eo '[0-9]?[0-9]?[0-9]%') ;;
-  FreeBSD) echo $(apm | sed '8,11d' | grep life | awk '{print $4}') ;;
+  Darwin) pmset -g batt | grep -Eo '[0-9]?[0-9]?[0-9]%' ;;
+  FreeBSD) apm | sed '8,11d' | grep life | awk '{print $4}' ;;
   *) ;;
   esac
 }
@@ -95,9 +95,9 @@ bat_stat=$(battery_status)
 bat_perc=$(battery_percent)
 
 if [ -z "$bat_stat" ]; then
-  echo "$bat_perc" >/tmp/battery.exectmux
+  echo "$bat_perc"
 elif [ -z "$bat_perc" ]; then
-  echo "" >/tmp/battery.exectmux
+  echo ""
 else
-  echo "$bat_stat $bat_perc" >/tmp/battery.exectmux
+  echo "$bat_stat $bat_perc"
 fi

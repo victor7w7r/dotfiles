@@ -36,5 +36,4 @@ get_percent() {
   esac
 }
 
-echo " $(get_percent)" >/tmp/cpu_info.exectmux
-sleep 0.6
+echo " $(get_percent)" && sleep 3

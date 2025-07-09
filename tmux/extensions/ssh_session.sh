@@ -69,13 +69,18 @@ ssh_connected() {
   [ $cmd = "ssh" ] || [ $cmd = "sshpass" ]
 }
 
-hostname=$(get_info hostname)
-user=$(get_info whoami)
-if ! $(ssh_connected); then
-  echo "" >/tmp/ssh_session.exectmux
-elif $(ssh_connected) && [ "$show_ssh_session_port" == "true" ]; then
-  port=$(get_info port)
-  echo $user@$hostname:$port >/tmp/ssh_session.exectmux
-else
-  echo $user@$hostname >/tmp/ssh_session.exectmux
-fi
+main() {
+  hostname=$(get_info hostname)
+  user=$(get_info whoami)
+  if ! $(ssh_connected); then
+    echo ""
+  elif $(ssh_connected) && [ "$show_ssh_session_port" == "true" ]; then
+    port=$(get_info port)
+    echo $user@$hostname:$port
+  else
+    echo $user@$hostname
+  fi
+
+}
+
+main

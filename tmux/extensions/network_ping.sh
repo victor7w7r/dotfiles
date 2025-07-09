@@ -11,5 +11,4 @@ ping_function() {
 }
 
 ping_function
-ping_function >/tmp/network_ping.exectmux
 sleep 5

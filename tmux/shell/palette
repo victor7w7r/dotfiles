@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2034
+
+colors_cake=("#2BB7FB" "#f38ba8" "#b4befe" "#7088ff" "#89dceb" "#cba6f7" "#e4cfff")
+colors_secondary=("#b71c1c" "#ef6c00" "#f9a825" "#2e7d32" "#1565c0" "#6a1b9a" "#5d4037")
+colors_alt=("#89dceb" "#7088ff" "#89dceb" "#7088ff" "#89dceb" "#7088ff" "#89dceb")
+colors_alt2=("#f38ba8" "#cba6f7" "#e4cfff" "#f38ba8" "#cba6f7" "#e4cfff" "#f38ba8")
+colors_alt3=("#b71c1c" "#f9a825" "#b71c1c" "#f9a825" "#b71c1c" "#f9a825" "#b71c1c")

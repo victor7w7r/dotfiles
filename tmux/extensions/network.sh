@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export LC_ALL=en_US.UTF-8
 
 get_ssid() {
   case $(uname -s) in
@@ -23,8 +22,12 @@ get_ssid() {
   esac
 }
 
-if ping -q -c 1 -W 1 "google.com" &>/dev/null; then
-  get_ssid >/tmp/network.exectmux
-else
-  echo "Offline" >/tmp/network.exectmux
-fi
+main() {
+  if ping -q -c 1 -W 1 "google.com" &>/dev/null; then
+    get_ssid
+  else
+    echo "Offline"
+  fi
+}
+
+main
