@@ -67,7 +67,6 @@ alias path='echo $PATH | tr ":" "\n" | nl'
 
 commandexist tmux && alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 commandexist tmux && alias treload='tmux source-file ~/.config/tmux/tmux.conf && tmux display-message "TMUX Config Reloaded"'
-commandexist zoxide && alias cd='z'
 commandexist rrr && alias rrr="ranger"
 commandexist nnn && alias nnn="nnn -e"
 commandexist fastfetch && alias ff="fastfetch -c $HOME/.config/fastfetch/config.conf"
@@ -92,7 +91,7 @@ if commandexist brew; then
     brew doctor \
   '
   alias brewinfo="brew leaves | xargs brew desc --eval-all"
-elif [["$EUID" -ne 0]] && commandexist yay; then
+elif [[ "$EUID" -ne 0 ]] && commandexist yay; then
   alias update=sh -c "
     set -e
     yay -Syyu --answerupgrade None --answerclean All --answerdiff None

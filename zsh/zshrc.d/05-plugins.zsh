@@ -69,6 +69,7 @@ zi wait lucid for \
   if'is-linux' OMZP::systemd \
   has'tailscale' OMZP::tailscale \
   has'thefuck' OMZP::thefuck \
+  has'cod' dim-an/cod \
   OMZP::tldr \
   OMZP::vscode \
   if'is-linux' OMZP::wakeonlan \
@@ -84,6 +85,8 @@ zi wait lucid for \
   Schroefdop/git-branches \
   hlissner/zsh-autopair \
   unixorn/git-extra-commands \
+  wfxr/forgit \
+  joshskidmore/zsh-fzf-history-search \
   rummik/zsh-tailf \
   Yash-Singh1/zsh-plugin-speedtest \
   zchee/zsh-completions \

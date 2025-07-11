@@ -1,6 +1,6 @@
 # Dotfiles
 
-A config files collection for CLI development
+A config files collection
 
 ![Alt text](splash.png?raw=true "Title")
 
@@ -10,12 +10,13 @@ A config files collection for CLI development
 
   - [SrUltralord dotfiles](https://github.com/SrUltraLord/dotfiles)
   - [craftzdog dotfiles](https://github.com/craftzdog/dotfiles-public/)
+  - [xlucn dotfiles](https://github.com/xlucn/dotfiles/)
 
 ### Contents
 
-- xfce4 config
-- fish config
-- PowerShell/WinTerminal config
-- nvim config
+- zsh config
 - tmux config
-- alacritty/hyprland/wofi/waybar config
+- nvim config
+- xfce4 config
+- PowerShell/WinTerminal config
+- wezterm/hyprland/wofi/waybar config
