@@ -1,0 +1,15 @@
+#$SHELL = $(which xonsh)
+$LANG = 'en_US.UTF-8'
+$LC_ALL = 'en_US.UTF-8'
+$EDITOR="vim"
+$VISUAL="vim"
+$COLORTERM = 'truecolor'
+$HISTCONTROL="ignoredups,ignorespace"
+$TERMINAL = 'rio'
+$GPG_TTY = `tty`
+$FOREIGN_ALIASES_SUPPRESS_SKIP_MESSAGE = True
+$MULTILINE_PROMPT=' '
+$COLOR_INPUT = True
+$COLOR_RESULTS = True
+$INDENT = "  "
+$XONSH_HISTORY_BACKEND = 'sqlite'

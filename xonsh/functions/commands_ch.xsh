@@ -1,7 +1,6 @@
 from pathlib import Path
 from xontrib_commands.argerize import Command
 
-
 @Command.reg
 def ch(user_path: str):
     """cd with sugar"""
@@ -16,5 +15,3 @@ def ch(user_path: str):
 
     pushd --quiet @(f"{path}")
     ll
-
-# EOF

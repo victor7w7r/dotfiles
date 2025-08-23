@@ -2,7 +2,7 @@
 
 from random import choice
 
-kaomojis = [
+_kaomojis = [
   "〜⁠(⁠꒪⁠꒳⁠꒪⁠)⁠〜",
   "∑( ºロº) !!",
   "(/>д<)/*✧",
@@ -51,4 +51,4 @@ kaomojis = [
   "(づ￣ ³￣)づ"
 ]
 
-kaomoji = lambda: choice(kaomojis)
+kaomoji = lambda: choice(_kaomojis)

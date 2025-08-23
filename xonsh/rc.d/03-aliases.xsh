@@ -1,1 +1,0 @@
-#    aliases['ll'] = 'ls -alF'

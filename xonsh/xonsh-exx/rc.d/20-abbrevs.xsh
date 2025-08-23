@@ -1,6 +1,5 @@
 xontrib load abbrevs
 
-
 def _first(word, sub):
     """Perform the substitution if and only if the command is the first word on the line."""
     abbrevs[word] = lambda buffer, word: sub if buffer.text.startswith(word) else word

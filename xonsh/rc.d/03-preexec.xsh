@@ -5,5 +5,5 @@ if __xonsh__.env.get("XONSH_INTERACTIVE") == "1" \
   and commandexist("tmux") is not None \
   and __xonsh__.env.get("TERM_PROGRAM") != "vscode" \
   and __xonsh__.env.get("SSH_TTY") is None:
-  
+
   execx("tmux -f ~/.config/tmux/tmux.conf", locs=globals())
