@@ -23,9 +23,12 @@ main() {
 
   if (( LAST_CMD_TS > LAST_PROCESSED_TS )); then
     echo "$LAST_CMD_TS" > "$TS_FILE"
-    mommy -c "$HOME/.config/tmux/mommy.conf" -1 -s "$LAST_EXIT" > "$MESSAGE_FILE"
+    RES=$(mommy -c "$HOME/.config/tmux/mommy.conf" -1 -s "$LAST_EXIT")
+    echo "$RES" > "$MESSAGE_FILE"
+    echo "  $RES"
   else
-    cat "$MESSAGE_FILE"
+    RES=$(cat "$MESSAGE_FILE")
+    echo "  $RES"
   fi
 }
 
