@@ -1,6 +1,6 @@
 from random import choice
 
-_bofh = [
+_bofh_arr = [
   "clock speed",
   "solar flares",
   "electromagnetic radiation from satellite debris",
@@ -469,4 +469,5 @@ _bofh = [
   "Your machine had the fuses in backwards."
 ]
 
-bofh = lambda: choice(_bofh)
+bofh = lambda: choice(_bofh_arr)
+aliases['bofh'] = bofh

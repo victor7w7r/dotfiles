@@ -1,6 +1,7 @@
 from random import choice, randint
+from shutil import which
 
-lolquotes = [
+_lolquotes = [
   "El amor por el teléfono ~~",
   "Van dos en una moto y se cae el del medio jaja xddxd",
   "A ver cuánto es 3+2?",
@@ -93,7 +94,7 @@ lolquotes = [
   "Suban la dificultad a los bots :v"
 ]
 
-hackerquotes = [
+_hackerquotes = [
   "Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.\n - Linus Torvalds",
   "I'm an egotistical bastard, and I name all my projects after myself. First Linux, now git.\n - Linus Torvalds",
   "One man's constant is another man's variable.\n - Alan J. Perlis",
@@ -248,30 +249,31 @@ hackerquotes = [
   "Not everything worth doing is worth doing well.\n - Tom West"
 ]
 
-def webquote:
-  data=$(command curl -s --connect-timeout 2 "https://www.quotationspage.com/random.php" |
-  iconv -c -f ISO-8859-1 -t UTF-8 |
-  command grep -a -m 1 'dt class="quote"')
+def _webquote():
+  data = $(curl -s --connect-timeout 2 "https://www.quotationspage.com/random.php" \
+    | iconv -c -f ISO-8859-1 -t UTF-8 \
+    | grep -a -m 1 'dt class="quote"')
 
-  if data == "": return 0
-  
-  quote=$(sed -e 's|</dt>.*||g' -e 's|.*html||g' -e 's|^[^a-zA-Z]*||' -e 's|</a..*$||g' <<<"$data")
-  author=$(sed -e 's|.*/quotes/||g' -e 's|<.*||g' -e 's|.*">||g' <<<"$data")
+  if not data: return bofh()
 
-  return $(print -P "%F{3}${author}%f: “%F{5}${quote}%f”")
+  quote = $(echo @(data) | sed -e 's|</dt>.*||g' -e 's|.*html||g' -e 's|^[^a-zA-Z]*||' -e 's|</a..*$||g').strip()
+  author = $(echo @(data) | sed -e 's|.*/quotes/||g' -e 's|<.*||g' -e 's|.*">||g').strip()
 
-def randomquote:
-  if ![command -v fortune &>/dev/null].returncode == 0:
+  return f"{author}: {quote}"
+
+def randomquote():
+  if not which('fortune'):
     number = randint(1, 4)
-    if number == 1: return lolquotes
-    elif number == 2: return bofh
-    elif number == 3: return hackerquotes
-    elif number == 4: return webquote
+    if number == 1: return choice(_lolquotes)
+    elif number == 2: return bofh()
+    elif number == 3: return choice(_hackerquotes)
+    elif number == 4: return _webquote()
   else:
     number = randint(1, 5)
-    if number == 1: return lolquotes
-    elif number == 2: return fortune
-    elif number == 3: return bofh
-    elif number == 4: return hackerquotes
-    elif number == 5: return webquote
-    
+    if number == 1: return choice(_lolquotes)
+    elif number == 2: return $(fortune)
+    elif number == 3: return bofh()
+    elif number == 4: return choice(_hackerquotes)
+    elif number == 5: return _webquote()
+
+aliases['randomquote'] = randomquote

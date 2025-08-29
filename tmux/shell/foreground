@@ -27,8 +27,8 @@ secondary_right_status() {
 }
 
 setup_foreground() {
-  if [[ "$1" == "zsh" || "$1" == "starship" || "$1" == "ssh" ||
-    "$1" == "tmux" || "$1" == "nvim" || "$1" == "xonsh" ]] \
+  if [[ "$1" == "bash" || "$1" == "starship" || "$1" == "ssh" ||
+    "$1" == "tmux" || "$1" == "nvim" || "$1" == "python" ]] \
     ; then
     KAOMOJI=""
     tmux set-option -gu status

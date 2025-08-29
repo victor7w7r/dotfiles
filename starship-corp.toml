@@ -1,32 +1,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = true
-command_timeout = 2000
+command_timeout = 500
 
 format = """
-[╭╴](#83e6ff)\
-$os\
-$username\
-[@](#83e6ff)\
-$hostname\
-$jobs\
-$directory\
-$sudo\
-$cmd_duration\
-$bun\
-$dart\
-$java\
-$kotlin\
-$rust\
-$fill\
-
-$status\
-$localip\
-$battery\
-$time
-[╰⎯](#83e6ff)\
-$character
-"""
+[╭╴](#83e6ff)$os$username[@](#83e6ff)$hostname\
+$jobs$directory$sudo$cmd_duration$fill\
+$shell$status$localip$time
+[╰╴](#83e6ff)$character"""
 
 [character]
 success_symbol = '[\$](bold #83e6ff)'
@@ -91,38 +72,8 @@ disabled = false
 format = '[ $duration]($style) '
 style = 'dimmed #83e6ff'
 
-[bun]
-format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
-symbol = ' '
-
-[dart]
-format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
-symbol = ' '
-
-[java]
-format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
-symbol = ' '
-
-[kotlin]
-format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
-symbol = ' '
-
-[rust]
-format = '[$symbol(${version} )]($style)'
-style = 'italic dimmed #83e6ff'
-symbol = ' '
-
 [fill]
 symbol = ' '
-
-[custom.kaomoji]
-command = "kaomoji"
-style = 'dimmed #83e6ff'
-when = "true"
 
 [status]
 disabled = false

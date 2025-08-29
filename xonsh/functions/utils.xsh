@@ -1,7 +1,6 @@
-from random import choice
-
-commandexist = lambda cmdres: ![command -v @(cmdres) &>/dev/null].returncode == 0
-random_opts = lambda: choice(['-b', '-d', '-g', '-p', '-s', '-t', '-w', '-y'])
+random_opts = lambda: __import__('random').choice([
+  '-b', '-d', '-g', '-p', '-s', '-t', '-w', '-y'
+])
 
 def x(*args):
   if len(args) == 1: __xonsh__.env[args[0]] = ''
