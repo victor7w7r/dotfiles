@@ -35,7 +35,7 @@ setup_foreground() {
   elif [[ "$1" != "$ACTUALPROCESS" || -z "$KAOMOJI" ]]; then
     ACTUALPROCESS="$1"
     ACTUALCOLOR="$(random_single_color)"
-    KAOMOJI="$(source "$HOME"/.config/zsh/zfunctions/kaomoji.zsh && kaomoji)"
+    KAOMOJI="$(source "$HOME"/.config/bash/functions/kaomoji.bash && kaomoji)"
     tmux set-option -gu status
   else
     secondary_right_status "$ACTUALCOLOR" "${KAOMOJI} $(shorten_string "$2")"
