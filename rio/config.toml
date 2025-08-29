@@ -32,7 +32,7 @@ family = "Noto Color Emoji"
 mode = "Plain"
 
 [platform]
-linux.shell.program = "zsh"
+linux.shell.program = "/usr/local/xenv/bin/xonsh"
 linux.shell.args = ["-l"]
 
 [renderer]

@@ -2,7 +2,6 @@ def _aliases():
   from shutil import which
   from sys import platform
 
-  aliases['ssh'] = 'TERM=xterm-256color command ssh'
   aliases['_'] = 'sudo'
   aliases['o'] = 'open .'
   aliases['t'] = 'btop'
