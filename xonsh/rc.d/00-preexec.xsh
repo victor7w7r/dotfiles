@@ -1,9 +1,6 @@
 def _preexec():
   env = __xonsh__.env
 
-  #proc = !(tmux ls >/dev/null 2>&1)
-  #if(proc.rtn == 0): return
-
   if (
     env.get('XONSH_INTERACTIVE') in (True, '1', 'True') or env.get('XONSH_MODE') == 'interactive'
   ) and env.get('TMUX') is None \
