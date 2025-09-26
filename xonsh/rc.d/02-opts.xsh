@@ -4,6 +4,7 @@ $EDITOR='nvim'
 $VISUAL='nvim'
 $COLORTERM = 'truecolor'
 $VC_BRANCH_TIMEOUT = 0.05
+$XONSH_SHOW_TRACEBACK = False
 $HISTCONTROL='ignoredups,ignorespace'
 $TERMINAL = 'rio'
 $GPG_TTY = `tty`

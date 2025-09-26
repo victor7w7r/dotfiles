@@ -11,15 +11,11 @@ plugins docker
 plugins fzf
 plugins git
 plugins git-subrepo
-plugins gradle
 plugins history
 plugins history-search
 plugins history-substring-search
-plugins java
-plugins javascript
 plugins jump
 plugins man
-plugins node
 plugins pyenv
 plugins python
 plugins sshagent
@@ -34,7 +30,6 @@ plugins zoxide
 completion bash-it
 completion brew
 completion cargo
-completion composer
 completion defaults
 completion dirs
 completion docker
@@ -42,10 +37,6 @@ completion docker-compose
 completion export
 completion git
 completion github-cli
-completion gradle
-completion hub
-completion npm
-completion nvm
 completion pip3
 completion pip
 completion pipenv
@@ -65,11 +56,8 @@ aliases editor
 aliases general
 aliases git
 aliases homebrew
-aliases homebrew-cask
 aliases homesick
 aliases msys2
-aliases node
-aliases npm
 aliases systemd
 aliases tmux
 aliases vim

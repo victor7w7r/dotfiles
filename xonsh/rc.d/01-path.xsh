@@ -6,12 +6,12 @@ def _path():
     '/usr/bin',
     '/usr/local/bin',
     '/usr/local/sbin',
-    '/usr/local/xenv/bin',
+    #'/usr/local/xenv/bin',
     '/home/linuxbrew/.linuxbrew/bin',
     f'{$HOME}/local/bin',
     f'{$HOME}/.bin',
-    f'{$HOME}/.cargo/bin',
-    f'{$HOME}/.venv/bin'
+    f'{$HOME}/.cargo/bin'
+    #f'{$HOME}/.venv/bin'
   ]:
     if path.isdir(dir) and path.exists(dir):
       $PATH.add(dir, front=True, replace=True)

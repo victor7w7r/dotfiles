@@ -1,18 +1,15 @@
 def _preexec():
   env = __xonsh__.env
 
-  if env.get('FBTERM') is not None: $TERM = 'fbterm'
-  if env.get('_XONSH_PREEXEC_DONE'): return
-  $_XONSH_PREEXEC_DONE = '1'
+  #proc = !(tmux ls >/dev/null 2>&1)
+  #if(proc.rtn == 0): return
 
   if (
     env.get('XONSH_INTERACTIVE') in (True, '1', 'True') or env.get('XONSH_MODE') == 'interactive'
-  ) and not env.get('TMUX') \
+  ) and env.get('TMUX') is None \
     and __import__('shutil').which('tmux') is not None \
     and env.get('TERM_PROGRAM') != 'vscode' \
-    and env.get('SSH_TTY') is None \
-    and not env.get('_XONSH_TMUX_STARTED'):
-      $_XONSH_TMUX_STARTED = '1'
+    and env.get('SSH_TTY') is None:
       __import__('os').execvp(
         'tmux',
         ['tmux', '-f', f"{env['HOME']}/.config/tmux/tmux.conf"]
