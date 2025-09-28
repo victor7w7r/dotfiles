@@ -28,14 +28,13 @@ fi
 
 post() {
   local last_exit=$1
-
-  if [[ $- == *i* ]] && \
+    if [[ $- == *i* ]] && \
     [[ -z "$TMUX" ]] && \
     command -v tmux >/dev/null 2>&1 && \
     [[ "$TERM_PROGRAM" != "vscode" ]] && \
     [[ -z "$SSH_TTY" ]]; then
-    tmux set-environment -g LAST_EXIT "$last_exit"
-    tmux set-environment -g LAST_CMD_TS "$(date +%s%N)"
+      tmux set-environment -g LAST_EXIT "$last_exit"
+      tmux set-environment -g LAST_CMD_TS "$(date +%s%N)"
   fi
 }
 

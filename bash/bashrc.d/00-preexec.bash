@@ -3,5 +3,5 @@ if [[ $- == *i* ]] && \
   command -v tmux >/dev/null 2>&1 && \
   [[ "$TERM_PROGRAM" != "vscode" ]] && \
   [[ -z "$SSH_TTY" ]]; then
-    exec tmux -f "$HOME/.config/tmux/tmux.conf"
+  exec tmux -f "$HOME/.config/tmux/tmux.conf"
 fi
