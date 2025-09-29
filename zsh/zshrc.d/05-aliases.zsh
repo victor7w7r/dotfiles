@@ -11,11 +11,12 @@ alias cls="clear && printf '\e[3J'"
 alias cp="cp -rvi"
 alias cdy="pwd | xclip -i"
 alias cdp="cd (xclip -o)"
-alias cow="customfortunes | cowsay --bold \$(random-opts) --random --super"
+alias cow="customfortunes | cowsay --bold $(random-opts) --random --super"
 alias mkdir='mkdir -pv'
 alias tarls="tar -tvf"
 alias shot='flameshot gui'
 alias untar="tar -xf"
+alias biggest='du -s ./* | sort -nr | awk '\''{print $2}'\'' | xargs du -sh'
 alias dux='du -x --max-depth=1 | sort -n'
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
@@ -42,6 +43,7 @@ alias cpuinfo='lscpu'
 alias distro='cat /etc/*-release'
 alias ports='netstat -tulanp'
 
+alias print-fpath='for fp in $fpath; do echo $fp; done; unset fp'
 alias print-path='echo $PATH | tr ":" "\n"'
 alias print-functions='print -l ${(k)functions[(I)[^_]*]} | sort'
 alias myip='curl icanhazip.com'
@@ -58,7 +60,7 @@ commandexist tmux && alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 commandexist tmux && alias treload='tmux source-file ~/.config/tmux/tmux.conf && tmux display-message "TMUX Config Reloaded"'
 commandexist rrr && alias rrr="ranger"
 commandexist nnn && alias nnn="nnn -e"
-commandexist fastfetch && alias ff="fastfetch -c \$HOME/.config/fastfetch/config.conf"
+commandexist fastfetch && alias ff="fastfetch -c $HOME/.config/fastfetch/config.conf"
 commandexist htop && alias top='htop'
 commandexist btm && alias top='btm $([ "$COLOR_SCHEME" = "light" ] && echo "--color default-light")'
 commandexist flatpak && alias flatupdate="flatpak update; flatpak remove --unused"
@@ -129,3 +131,9 @@ elif [[ -n "$MSYSTEM" ]]; then
   alias oso=onesixtyone
   alias cme=crackmapexec
 fi
+
+alias reload='. "$ZDOTDIR/.zshrc" && echo "Sourced $ZDOTDIR/.zshrc"'
+alias colormap='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
+alias zupdate='zinit update --parallel 40'
+alias zselfupdate='zinit self-update'
+alias zreset='rm -rf "${ZSHEXECDIR}/zinit" &>/dev/null && rm -rf "${HOME}/.local/share/zinit" &>/dev/null'

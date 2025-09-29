@@ -1,8 +1,8 @@
-equals() {
-  realpath "$(which "$1")"
+function equals() {
+  realpath $(which $1)
 }
 
-bak() {
+function bak() {
   if [ $# -ne 1 ]; then
     echo "1 path must be supplied"
     return 1
@@ -27,7 +27,7 @@ bak() {
   fi
 }
 
-ex() {
+function ex() {
   if [ -f "$1" ]; then
     filename=$(basename "$1")
     foldername=$(echo "$filename" | sed 's/\.[^.]*$//')
@@ -78,28 +78,28 @@ ex() {
   fi
 }
 
-mkcd() {
-  mkdir -p "$1" && cd "$1" || exit
+function mkcd() {
+  mkdir -p "$1" && cd "$1"
 }
 
-mvcd() {
+function mvcd() {
   if [ $# -gt 1 ]; then
     mkdir -p "$2"
     mv "$1" "$2"
-    cd "$2" || exit
+    cd "$2"
   fi
 }
 
-cheat() {
+function cheat() {
   navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
   if [ $# -eq 0 ]; then
-    eval "$navi_command"
+    eval $navi_command
   else
-    eval "$navi_command" --query "$@"
+    eval $navi_command --query "$@"
   fi
 }
 
-cwd() {
+function cwd() {
   if [ "$OS" = "Linux" ]; then
     echo -n "$(echo $PWD | sed "s|^$HOME|~|")" | tr -d "\r\n" | xclip -selection clipboard -i
   elif [ "$OS" = "Darwin" ]; then
@@ -110,16 +110,16 @@ cwd() {
   fi
 }
 
-dus() {
+function dus() {
   command dust -r -d 1 "$@"
 }
 
-fkill() {
+function fkill() {
   local pids
   if [ "$OS" = "Linux" ]; then
-    pids=$(ps -f -u "$USER" | sed 1d | fzf | awk '{print $2}')
+    pids=$(ps -f -u $USER | sed 1d | fzf | awk '{print $2}')
   elif [ "$OS" = "Darwin" ]; then
-    pids=$(ps -f -u "$USER" | sed 1d | fzf | awk '{print $3}')
+    pids=$(ps -f -u $USER | sed 1d | fzf | awk '{print $3}')
   else
     echo 'Error: unknown platform.'
     return
@@ -130,7 +130,7 @@ fkill() {
   fi
 }
 
-mux() {
+function mux() {
   if [ $# -eq 1 ] && [ "$1" = "stop" ]; then
     tmuxinator stop "$(tmux display-message -p '#S')"
   else
@@ -138,34 +138,34 @@ mux() {
   fi
 }
 
-tka() {
+function tka() {
   tmux ls | cut -d : -f 1 | xargs -I {} tmux kill-session -t {}
 }
 
-tna() {
+function tna() {
   tmux new-session -As "$(basename "$PWD" | tr . -)"
 }
 
-bin() {
+function bin() {
   ln -sr "$(realpath "$1")" /usr/local/bin/
 }
 
-s() {
+function s() {
   sudo "$@"
 }
 
-f() {
+function f() {
   find . -name "*$1*" 2>/dev/null
 }
 
-path_add() {
+function path_add() {
   if [[ ":$PATH:" != *":$1:"* ]]; then
     export PATH="$PATH:$1"
   fi
   echo "Updated PATH: $PATH"
 }
 
-compress() {
+function compress() {
   if [[ -n "$1" ]]; then
     local file=$1
     shift

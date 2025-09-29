@@ -5,7 +5,6 @@ paths=(
   /usr/bin
   /usr/local/bin
   /usr/local/sbin
-  /usr/local/xenv/bin
   node_modules/.bin
   "$HOME/.bin"
   "$HOME/.local/bin"

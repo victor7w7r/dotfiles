@@ -25,6 +25,7 @@ commandexist systemctl && eval "$(systemctl --user import-environment PATH)"
 commandexist fzf && source <(fzf --bash)
 commandexist zoxide && eval "$(zoxide init bash --cmd cd)"
 commandexist thefuck && eval "$(thefuck --alias)"
+commandexist cod && source <(cod init $$ bash)
 commandexist pyenv && eval "$(pyenv init --path)"
 commandexist gh && gh extension list | grep -q 'copilot' && eval "$(gh copilot alias -- bash)"
 commandexist starship && eval "$(starship init bash)"

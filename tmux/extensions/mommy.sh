@@ -15,6 +15,11 @@ main() {
   TS_FILE="/tmp/.last_cmd_ts_seen"
   MESSAGE_FILE="/tmp/.last_cmd_message"
 
+  if [[ -n "$IS_ZSH" ]]; then
+    echo ""
+    return
+  fi
+
   if [[ -f "$TS_FILE" ]]; then
     LAST_PROCESSED_TS=$(cat "$TS_FILE")
   else
