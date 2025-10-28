@@ -1,4 +1,4 @@
-function setup_abbr() {
+setup_abbr() {
   abbr c="clear"
   abbr :q="exit"
   abbr :wq="exit"
@@ -49,3 +49,5 @@ function setup_abbr() {
   abbr aptl="sudo apt list --upgradable"
   abbr di="sudo dpkg -i"
 }
+
+#setup_abbr

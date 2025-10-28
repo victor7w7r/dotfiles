@@ -1,4 +1,4 @@
-bofh() {
+function bofh() {
   bofh_quotes=(
     "clock speed"
     "solar flares"

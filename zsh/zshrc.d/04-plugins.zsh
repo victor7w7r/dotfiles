@@ -32,12 +32,10 @@ zi wait lucid for \
   if'is-linux' OMZP::archlinux \
   has'autojump' OMZP::autojump \
   has'bgnotify' OMZP::bgnotify \
-  if'is-notcygwin' OMZP::brew \
   OMZP::bun \
   OMZP::colored-man-pages \
   OMZP::command-not-found \
   has'podman' OMZP::podman \
-  OMZP::dotenv \
   has'eza' OMZP::eza \
   OMZP::extract \
   OMZP::fnm \

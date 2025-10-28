@@ -1,5 +1,6 @@
 alias ssh="TERM=xterm-256color command ssh"
 alias _="sudo"
+alias e="emacs -nw"
 alias o="open ."
 alias t='btop'
 alias ff='find . -type f -name'
@@ -29,6 +30,7 @@ alias lg="lazygit"
 alias lzd="lazydocker"
 alias killn='killall -q'
 alias beep='echo -e "\a"; sleep 0.1; echo -e "\a"'
+alias space='cat /dev/zero > zero.fill && sync && sleep 1 && sync && rm -f zero.fill'
 
 alias timestamp="date '+%Y-%m-%d %H:%M:%S'"
 alias datestamp="date '+%Y-%m-%d'"
@@ -66,7 +68,7 @@ commandexist btm && alias top='btm $([ "$COLOR_SCHEME" = "light" ] && echo "--co
 commandexist flatpak && alias flatupdate="flatpak update; flatpak remove --unused"
 
 if commandexist bat; then
-  alias cat="bat -P --paging=never"
+  #alias cat="bat -P --paging=never"
   alias b="bat -P --paging=never"
 fi
 

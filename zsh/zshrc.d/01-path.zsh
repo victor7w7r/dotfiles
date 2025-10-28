@@ -9,10 +9,10 @@ path=(
   "$HOME/.bin"
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
-  #"$HOME/.venv/bin"
+  "/opt/brew/bin"
+  "$HOME/.config/emacs/bin"
   $path
 )
-fpath=("$ZSH/functions" "$ZSH/completions" $fpath)
+fpath=("$ZSH/completions" $fpath)
 
 for zfunction in ${ZDOTDIR}/functions/*.zsh; do source $zfunction; done; unset zfunction
-
