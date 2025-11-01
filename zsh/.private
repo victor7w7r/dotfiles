@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 CACHE_DIR="/Volumes/A036-extnvme"
 

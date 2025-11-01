@@ -22,8 +22,8 @@ alias dux='du -x --max-depth=1 | sort -n'
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
 alias grep="grep -H --color=auto --exclude-dir={.git,.vscode}"
-alias rscp="rsync -avhE --progress --partial --info=stats2 --inplace --no-i-r --numeric-ids --human-readable"
-alias rsmv="rsync -avhE --no-compress --progress --remove-source-files --partial --info=stats2 --inplace --no-i-r --numeric-ids --human-readable"
+alias rscp="rsyncy -avhE --progress --partial --info=stats2 --inplace --no-i-r --numeric-ids --human-readable"
+alias rsmv="rsyncy -avhE --no-compress --progress --remove-source-files --partial --info=stats2 --inplace --no-i-r --numeric-ids --human-readable"
 alias py="python3"
 alias g="git"
 alias lg="lazygit"

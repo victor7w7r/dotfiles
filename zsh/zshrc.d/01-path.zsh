@@ -10,7 +10,7 @@ path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "/opt/brew/bin"
-  "$HOME/.config/emacs/bin"
+  "$HOME/.emacs.d/bin"
   $path
 )
 fpath=("$ZSH/completions" $fpath)
