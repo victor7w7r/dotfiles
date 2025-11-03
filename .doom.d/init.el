@@ -1,36 +1,25 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
-;;      documentation. There you'll find a link to Doom's Module Index where all
-;;      of our modules are listed, including what flags they support.
-
-(doom! :input
-       :completion
-       (company +childframe)
-       (corfu +orderless)  ; complete with cap(f), cape and a flying feather!
-       ;;helm              ; the *other* search engine for love and life
-       ;;ido               ; the other *other* search engine...
-       ;;ivy               ; a search engine for love and life
-       vertico           ; the search engine of the future
+(doom! :completion
+       (company +childframe +tng)
+       (corfu +dabbrev +icons)
+       (vertico +icons)
 
        :ui
-       doom
+       (doom +tabs)
        doom-dashboard
        (emoji +unicode)
        hl-todo
-       ;;indent-guides     ; highlighted indent columns
-       ligatures         ; ligatures and symbols to make your code pretty again
+       indent-guides
+       ligatures
        minimap
        modeline
-       ophints           ; highlight the region an operation acts on
-       (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;;tabs              ; a tab bar for Emacs
+       ophints
+       (popup +defaults)
        treemacs
-       ;;unicode           ; extended unicode support for various languages
        (vc-gutter +pretty)
-       vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select
-       workspaces        ; tab emulation, persistence & separate workspaces
+       (workspaces +tabs)
        zen
 
        :editor
@@ -39,7 +28,6 @@
        fold
        ;;(format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
-       ;;lispy             ; vim for lisp, for people who don't like vim
        multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        parinfer          ; turn lisp into python, sort of
@@ -49,7 +37,7 @@
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired +dirvish +icons)
        electric          ; smarter, keyword-based electric-indent
        ;;eww               ; the internet is gross
        ;;ibuffer           ; interactive buffer management
@@ -58,58 +46,49 @@
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
-       ;;eshell            ; the elisp shell that works everywhere
-       ;;shell             ; simple shell REPL for Emacs
-       ;;term              ; basic terminal emulator for Emacs
-       vterm             ; the best terminal emulation in Emacs
+       eshell
+       vterm
 
        :checkers
-       syntax              ; tasing you for every semicolon you forget
-       ;;(spell +flyspell) ; tasing you for misspelling mispelling
+       syntax
 
        :tools
-       ;;biblio            ; Writes a PhD for you (citation needed)
-       debugger          ; FIXME stepping through code, to help you add bugs
+       debugger
        direnv
        docker
-       editorconfig      ; let someone else argue about tabs vs spaces
-       (eval +overlay)     ; run code, run (also, repls)
-       lookup              ; navigate your code and its documentation
-       ;;llm               ; when I said you needed friends, I didn't mean...
-       lsp      ; M-x vscode
-       magit             ; a git porcelain for Emacs
-       pdf               ; pdf enhancements
-       tmux              ; an API for interacting with tmux
-       tree-sitter       ; syntax and parsing, sitting in a tree...
-       upload            ; map local to remote projects via ssh/ftp
+       editorconfig
+       (eval +overlay)
+       (lookup +docsets +dictionary)
+       lsp
+       (magit +childframe +forge)
+       pdf
+       tmux
+       tree-sitter
 
        :os
-       (:if (featurep :system 'macos) macos)
        tty
 
        :lang
-       ;;common-lisp       ; if you've seen one lisp, you've seen them all
-       data              ; config/data formats
-       (dart +flutter)   ; paint ui and not much else
-       emacs-lisp        ; drown in parentheses
-       json              ; At least it ain't XML
-       (java +lsp)       ; the poster child for carpal tunnel syndrome
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
-       kotlin            ; a better, slicker Java(Script)
-       markdown          ; writing docs for people to ignore
-       nix               ; I hereby declare "nix geht mehr!"
-       org               ; organize your plain life in plain text
-       python            ; beautiful is better than ugly
-       rest              ; Emacs as a REST client
-       (sh +powershell)  ; she sells {ba,z,fi}sh shells on the C xor
-       web               ; the tubes
-       yaml              ; JSON, but readable
-      
+       (data +tree-sitter)
+       (dart +flutter +lsp +tree-sitter)
+       emacs-lisp
+       (java +lsp +tree-sitter)
+       (javascript +lsp +tree-sitter)
+       (json +tree-sitter)
+       (kotlin +lsp +tree-sitter)
+       (markdown +tree-sitter)
+       (nix +lsp +tree-sitter)
+       (python +lsp +tree-sitter +pyright)
+       rest
+       (rust +lsp +tree-sitter)
+       (sh +powershell +lsp)
+       (toml +tree-sitter)
+       (typescript +lsp +tree-sitter)
+       (web +lsp +tree-sitter)
+       (yaml +tree-sitter)
+
        :email
-       :app
-       calendar
-       everywhere        ; *leave* Emacs!? You must be joking
+       (mu4e +mbsync +fastmail +org +icons)
 
        :config
-       ;;literate
        (default +bindings +smartparens))

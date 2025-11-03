@@ -1,4 +1,86 @@
 ;; -*- no-byte-compile: t; -*-
 
-(package! centaur-tabs)
+;; AI
+(package! chatgpt-shell)
+(package! copilot)
 
+;; Code
+(package! android-mode)
+(package! astro-ts-mode)
+(package! auto-rename-tag)
+(package! cargo)
+(package! colorful-mode)
+(package! eslintd-fix)
+(package! emmet-mode)
+(package! fancy-compilation)
+(package! format-all)
+(package! gradle-mode)
+(package! literate-calc-mode)
+(package! lsp-tailwindcss)
+(package! rainbow-delimiters)
+(package! svelte-mode)
+(package! string-inflection)
+(package! tagedit)
+(package! toggle-quotes)
+(package! vue-mode)
+
+;; Media
+(package! mentor)
+(package! versuri)
+
+;; Games / Decoration
+(package! 2048-game)
+(package! blackjack)
+(package! clippy)
+(package! fireplace)
+(package! gameoflife)
+(package! klondike)
+(package! nyan-mode)
+(package! pacmacs)
+(package! parrot)
+(package! speed-type)
+(package! sudoku)
+
+;; System
+(package! helm-system-packages)
+(package! pkg-info)
+(package! spotify)
+(package! symon)
+(package! systemd-mode)
+(package! tldr)
+
+;; UI
+(package! ace-window)
+(package! annotate)
+(package! beacon)
+(package! bm)
+(package! buffer-move)
+(package! buffer-name-relative)
+(package! centaur-tabs)
+(package! dumb-jump)
+(package! electric-cursor)
+(package! evil-anzu)
+(package! evil-easymotion)
+(package! evil-iedit-state)
+(package! evil-goggles)
+(package! evil-matchit)
+(package! evil-mc)
+(package! evil-nerd-commenter)
+(package! evil-tutor)
+(package! hungry-delete)
+(package! lsp-treemacs)
+(package! lsp-ui)
+(package! move-text)
+(package! multi-vterm)
+(package! mwim)
+(package! quickrun)
+(package! ts-fold
+ :recipe (:host github :repo "emacs-tree-sitter/ts-fold"))
+(package! visual-regexp)
+(package! undo-fu)
+(package! which-key)
+(package! yascroll)
+(package! ws-butler)
+
+;; Web
+(package! google-this)
