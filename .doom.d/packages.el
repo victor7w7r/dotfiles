@@ -1,17 +1,13 @@
 ;; -*- no-byte-compile: t; -*-
 
 ;; AI
-(package! chatgpt-shell)
 (package! copilot)
 
 ;; Code
-(package! android-mode)
 (package! astro-ts-mode)
 (package! auto-rename-tag)
-(package! cargo)
 (package! colorful-mode)
 (package! eslintd-fix)
-(package! emmet-mode)
 (package! fancy-compilation)
 (package! format-all)
 (package! gradle-mode)
@@ -50,35 +46,21 @@
 (package! tldr)
 
 ;; UI
-(package! ace-window)
 (package! annotate)
 (package! beacon)
 (package! bm)
 (package! buffer-move)
 (package! buffer-name-relative)
-(package! dumb-jump)
 (package! electric-cursor)
-(package! evil-anzu)
-(package! evil-easymotion)
 (package! evil-iedit-state)
-(package! evil-goggles)
 (package! evil-matchit)
-(package! evil-mc)
-(package! evil-nerd-commenter)
 (package! evil-tutor)
 (package! hungry-delete)
-(package! lsp-treemacs)
-(package! lsp-ui)
 (package! move-text)
 (package! multi-vterm)
 (package! mwim)
-(package! quickrun)
-(package! ts-fold
- :recipe (:host github :repo "emacs-tree-sitter/ts-fold"))
 (package! visual-regexp)
-(package! undo-fu)
 (package! which-key)
-(package! yascroll)
 (package! ws-butler)
 
 ;; Web

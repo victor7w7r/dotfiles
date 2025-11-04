@@ -1,15 +1,6 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*
 
 ;;
-;; AI
-(use-package chatgpt-shell
-  :ensure t
-  :custom
-  ((chatgpt-shell-openai-key
-    (lambda ()
-      (auth-source-pass-get 'secret "openai-key")))))
-
-;;
 ;; Clipboard
 (setq wl-copy-process nil
       wl-paste-process nil)
@@ -137,9 +128,7 @@
 (move-text-default-bindings)
 (require 'quickrun)
 (setq treemacs-width 30)
-(require 'ts-fold)
 (require 'ws-butler)
-(global-yascroll-bar-mode 1)
 
 (setq projectile-project-search-path '("~/repositories/" "~/repositories/TCM/"))
 
@@ -186,3 +175,6 @@
 
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action))
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(dart-ts-mode . "dart")))
