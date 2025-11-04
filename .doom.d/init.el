@@ -6,7 +6,7 @@
        (vertico +icons)
 
        :ui
-       (doom +tabs)
+       doom
        doom-dashboard
        (emoji +unicode)
        hl-todo
@@ -16,17 +16,18 @@
        modeline
        ophints
        (popup +defaults)
+       tabs
        treemacs
        (vc-gutter +pretty)
        window-select
-       (workspaces +tabs)
+       ;;(workspaces +tabs)
        zen
 
        :editor
        (evil +everywhere)
        file-templates
        fold
-       ;;(format +onsave)  ; automated prettiness
+       (format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
        multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent

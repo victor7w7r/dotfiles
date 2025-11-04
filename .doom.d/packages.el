@@ -56,7 +56,6 @@
 (package! bm)
 (package! buffer-move)
 (package! buffer-name-relative)
-(package! centaur-tabs)
 (package! dumb-jump)
 (package! electric-cursor)
 (package! evil-anzu)
