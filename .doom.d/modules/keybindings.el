@@ -16,9 +16,6 @@
 (global-set-key (kbd "<home>") 'mwim-beginning-of-line-or-code)
 (global-set-key (kbd "<end>") 'mwim-end-of-line-or-code)
 
-(global-set-key [mouse-4] 'scroll-down-line)
-(global-set-key [mouse-5] 'scroll-up-line)
-
 (global-set-key (kbd "C-'") 'toggle-quotes)
 
 (map!

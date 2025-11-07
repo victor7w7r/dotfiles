@@ -2,17 +2,19 @@
 
 (xterm-mouse-mode 1)
 (setq mouse-drag-copy-region t)
+(global-set-key [mouse-4] 'scroll-down-line)
+(global-set-key [mouse-5] 'scroll-up-line)
 
 (beacon-mode 1)
 (colorful-mode 1)
 (context-menu-mode 1)
+(tool-bar-mode 1)
 (menu-bar-mode 1)
 ;;(parrot-mode 1)
 ;;(nyan-mode 1)
 
 (setq doom-theme 'doom-moonlight)
 (setq zone-timer (run-with-idle-timer 120 t 'zone))
-
 
 (defun theme-colors-setup ()
   "Setup Colors"
