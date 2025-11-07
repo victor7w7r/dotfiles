@@ -1,12 +1,16 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+(setq evil-want-keybinding nil)
+
 (doom! :completion
-       (corfu +dabbrev +icons)
+       (corfu +dabbrev +icons +orderless)
        (vertico +icons)
 
        :ui
+       deft
        doom
        doom-dashboard
+       doom-quit
        (emoji +unicode +github)
        hl-todo
        indent-guides
@@ -20,28 +24,24 @@
        (vc-gutter +pretty)
        vi-tilde-fringe
        (window-select +numbers +switch-window)
-       ;;(workspaces +tabs)
-       (zen +writeroom-mode)
+       (workspaces +tabs)
+       zen
 
        :editor
        (evil +everywhere)
-       file-templates
        fold
-       (format +onsave)
-       ;;god
+       (format +onsave +lsp)
        multiple-cursors
        parinfer
        rotate-text
-       snippets
+       ;;snippets
        (whitespace +guess +trim)
-       word-wrap
+       word-wrasp
 
        :emacs
        (dired +dirvish +icons)
        electric
-       eww
        (ibuffer +icons)
-       tramp
        undo
        vc
 
@@ -59,7 +59,7 @@
        editorconfig
        (eval +overlay)
        llm
-       (lookup +docsets +dictionary)
+       (lookup +docsets +dictionary +offline)
        (lsp +peek)
        magit
        make
@@ -71,8 +71,8 @@
        tty
 
        :lang
-       data
        (dart +flutter +lsp +tree-sitter)
+       data
        emacs-lisp
        (java +lsp +tree-sitter)
        (javascript +lsp +tree-sitter)
@@ -80,7 +80,7 @@
        (kotlin +lsp +tree-sitter)
        (markdown +tree-sitter)
        (nix +lsp +tree-sitter)
-       (python +lsp +tree-sitter +pyright +pyenv)
+       (python +lsp +tree-sitter +poetry +pyright)
        (rest +jq)
        (rust +lsp +tree-sitter)
        (sh +powershell +lsp)

@@ -1,27 +1,22 @@
 ;; -*- no-byte-compile: t; -*-
 
-;; AI
-(package! copilot)
-
 ;; Code
+(package! lsp-augment
+  :recipe (:host github :repo "rolandd/augment.vim"))
+(package! copilot)
 (package! astro-ts-mode)
 (package! auto-rename-tag)
 (package! colorful-mode)
-(package! eslintd-fix)
 (package! fancy-compilation)
-(package! format-all)
-(package! gradle-mode)
-(package! literate-calc-mode)
-(package! lsp-tailwindcss)
 (package! rainbow-delimiters)
 (package! svelte-mode)
 (package! string-inflection)
 (package! tagedit)
 (package! toggle-quotes)
-(package! vue-mode)
 
 ;; Media
 (package! mentor)
+(package! spotify)
 (package! versuri)
 
 ;; Games / Decoration
@@ -40,9 +35,6 @@
 ;; System
 (package! helm-system-packages)
 (package! pkg-info)
-(package! spotify)
-(package! symon)
-(package! systemd-mode)
 (package! tldr)
 
 ;; UI
@@ -50,9 +42,6 @@
 (package! beacon)
 (package! bm)
 (package! buffer-move)
-(package! buffer-name-relative)
-(package! electric-cursor)
-(package! evil-iedit-state)
 (package! evil-matchit)
 (package! evil-tutor)
 (package! hungry-delete)
@@ -61,7 +50,6 @@
 (package! mwim)
 (package! visual-regexp)
 (package! which-key)
-(package! ws-butler)
 
 ;; Web
 (package! google-this)
