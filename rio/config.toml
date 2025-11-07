@@ -24,9 +24,6 @@ family = "JetBrainsMono Nerd Font"
 use-drawable-chars = true
 features = ["ss02", "ss03", "ss05", "ss19"]
 
-[fonts.emoji]
-family = "Noto Color Emoji"
-
 [navigation]
 mode = "Plain"
 use-split = false
