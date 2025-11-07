@@ -31,7 +31,7 @@
 (after! doom-themes
   (custom-set-faces!
     '(popup-menu :background "#1e1e2e" :foreground "#cdd6f4")
-    '(menu :background "#unspecified-bg" :foreground "#cdd6f4")
+    '(menu :background "unspecified-bg" :foreground "#cdd6f4")
     '(tty-menu-enabled-face :background "unspecified-bg" :foreground "mediumpurple1" :weight bold)
     '(tty-menu-disabled-face :background "unspecified-bg" :foreground "#575268" :weight normal)
     '(tty-menu-selected-face :background "steelblue4" :foreground "mediumpurple1" :weight bold)
