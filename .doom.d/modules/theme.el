@@ -7,7 +7,6 @@
 (colorful-mode 1)
 (context-menu-mode 1)
 (menu-bar-mode 1)
-(scroll-bar-mode 1)
 ;;(parrot-mode 1)
 ;;(nyan-mode 1)
 
