@@ -78,6 +78,7 @@
        (javascript +lsp +tree-sitter)
        (json +lsp +tree-sitter)
        (kotlin +lsp +tree-sitter)
+       (lua +lsp +tree-sitter)
        (markdown +tree-sitter)
        (nix +lsp +tree-sitter)
        (python +lsp +tree-sitter +poetry +pyright)
