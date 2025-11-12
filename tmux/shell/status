@@ -7,7 +7,7 @@ right_status() {
     "#{?#{==:$2,},,#[fg=$1,nobold,nounderscore,noitalics] #[fg=#cdd6f4,bg=$1] $2}"
 }
 
-right_status "#($ext/extensions/colors.sh 3)" "#($ext/extensions/mommy.sh)"
+#right_status "#($ext/extensions/colors.sh 3)" "#($ext/extensions/mommy.sh)"
 right_status "#($ext/extensions/colors.sh 0)" "#($ext/extensions/git.sh)"
 right_status "#($ext/extensions/colors.sh 1)" "#($ext/extensions/ssh_session.sh)"
 right_status "#($ext/extensions/colors.sh 2)" "#($ext/extensions/network_ping.sh)"
