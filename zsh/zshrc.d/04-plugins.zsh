@@ -42,7 +42,6 @@ zi wait lucid for \
   OMZP::fzf \
   OMZP::git \
   OMZP::git-commit \
-  OMZP::gradle \
   OMZP::lol \
   OMZP::python \
   OMZP::rsync \
@@ -90,6 +89,10 @@ if commandexist carapace; then
   zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
   zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
   source <(carapace _carapace)
+fi
+
+if [ -e /etc/profile.d/nix.sh ]; then
+  . /etc/profile.d/nix.sh
 fi
 
 commandexist jump && lazyload jump -- 'eval "$(jump shell)"'

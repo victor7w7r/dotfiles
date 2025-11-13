@@ -99,20 +99,6 @@ if commandexist eza; then
   alias ldot='ls -ld .*'
 fi
 
-if commandexist nvim; then
-  alias v="nvim ."
-  alias vi="nvim"
-  alias nano="nvim"
-  alias vim="nvim"
-  alias astro="NVIM_APPNAME=AstroNvim nvim"
-  alias nv="NVIM_APPNAME=NvChad nvim"
-  alias lazy="NVIM_APPNAME=LazyVim nvim"
-  alias aa="NVIM_APPNAME=ArchVim nvim"
-  alias lunar="lvim"
-  alias kick="NVIM_APPNAME=kickstart nvim"
-  alias fresh="NVIM_APPNAME=FreshVim nvim"
-fi
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
   alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"

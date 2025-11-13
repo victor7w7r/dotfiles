@@ -9,6 +9,17 @@ export ABBR_GET_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION=1
 autoload -Uz add-zsh-hook
 
+function zle-line-init() {
+  echo -ne '\e[5 q'
+}
+
+function zle-line-finish() {
+  echo -ne '\e[5 q'
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+
 setopt_if_exists extended_glob
 setopt_if_exists interactivecomments
 setopt_if_exists COMPLETE_IN_WORD

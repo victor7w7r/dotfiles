@@ -27,7 +27,7 @@ secondary_right_status() {
 }
 
 setup_foreground() {
-  if [[ "$1" == "bash" || "$1" == "starship" || "$1" == "ssh" ||
+  if [[ "$1" == "bash" || "$1" == "starship" || "$1" == "ssh" || "$1" == "nvim" ||
     "$1" == "tmux" || "$1" == "emacs" || "$1" == "zsh" || "$1" == "-zsh" ]] \
     ; then
     KAOMOJI=""
