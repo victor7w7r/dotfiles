@@ -9,16 +9,22 @@ export ABBR_GET_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION=1
 autoload -Uz add-zsh-hook
 
-function zle-line-init() {
+export ZVM_CURSOR_STYLE_ENABLED=false
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+
+zle -N zle-keymap-select
+
+_fix_cursor() {
   echo -ne '\e[5 q'
 }
 
-function zle-line-finish() {
-  echo -ne '\e[5 q'
-}
-
-zle -N zle-line-init
-zle -N zle-line-finish
+precmd_functions+=(_fix_cursor)
 
 setopt_if_exists extended_glob
 setopt_if_exists interactivecomments

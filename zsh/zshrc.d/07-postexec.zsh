@@ -28,11 +28,11 @@ fi
 
 zsh_mommy() {
   if [[
-  -o interactive &&
-  -z "$TMUX" &&
-  -x "$(command -v tmux)" &&
-  "$TERM_PROGRAM" != "vscode" &&
-  -z "$SSH_TTY" ]]; then
+    -o interactive &&
+    -z "$TMUX" &&
+    -x "$(command -v tmux)" &&
+    "$TERM_PROGRAM" != "vscode" &&
+    -z "$SSH_TTY" ]]; then
     tmux set-environment -g IS_ZSH "1"
   fi
 }
@@ -43,3 +43,5 @@ if commandexist mommy; then
   set -o PROMPT_SUBST
   RPS1='$(mommy -c ${HOME}/.config/tmux/mommy.conf -1 -s $?)'
 fi
+
+echo -e '\e[5 q'
